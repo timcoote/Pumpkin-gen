@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 DOCKER="docker"
 set +e
 $DOCKER ps >/dev/null 2>&1
@@ -51,6 +51,7 @@ fi
 
 $DOCKER build -t pi-gen .
 if [ "$CONTAINER_EXISTS" != "" ]; then
+        echo "container exists"
 	trap "echo 'got CTRL+C... please wait 5s';docker stop -t 5 ${CONTAINER_NAME}_cont" SIGINT SIGTERM
 	time $DOCKER run --rm --privileged \
 		--volumes-from="${CONTAINER_NAME}" --name "${CONTAINER_NAME}_cont" \
@@ -61,6 +62,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 	rsync -av work/*/build.log deploy/" &
 	wait
 else
+        echo "does not exist"
 	trap "echo 'got CTRL+C... please wait 5s'; docker stop -t 5 ${CONTAINER_NAME}" SIGINT SIGTERM
 	$DOCKER run --name "${CONTAINER_NAME}" --privileged \
 		-e IMG_NAME=${IMG_NAME}\

@@ -1,4 +1,5 @@
 deploy/*
+smart-home
 work/*
 config
 postrun.sh
