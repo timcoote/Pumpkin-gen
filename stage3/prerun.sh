@@ -5,4 +5,4 @@ fi
 
 pwd
 ls -l
-cp -r ../smart-home ${ROOTFS_DIR}
+cp -r ../smart-home ${ROOTFS_DIR}/home/pi
