@@ -24,4 +24,7 @@ build.sh fails (this takes 2 hours on my computer) :: need to capture failure: r
 happen as part of the disk image creation process!). can run ansible-playbook with --skip-tags hubaccess. gitlab{user,password} passed in as env variables to the chroot
 seems to work.
 
-Disk creation needs to copy the smart-homes code to /home/pi?
+Disk creation needs to copy the smart-homes code to /home/pi? - did not work as tried initially
+--
+
+unsure on where to put the apt/sources.list change for ansible
