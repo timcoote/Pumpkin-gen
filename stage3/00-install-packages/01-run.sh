@@ -17,4 +17,3 @@ ANSIBLE_KEEP_REMOTE_FILES=1
 ansible-playbook -vvvvv -i 'localhost ansible_connection=local,' site.yml
 
 EOF
-
