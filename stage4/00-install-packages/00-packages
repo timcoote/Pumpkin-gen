@@ -1,5 +1,5 @@
 java-common oracle-java8-jdk
-libreoffice-sdbc-hsqldb
+#libreoffice-sdbc-hsqldb
 sonic-pi
 #python idle python3-pygame python-pygame python-tk
 #python3 idle3 python3-tk
