@@ -1,12 +1,14 @@
-FROM debian:jessie
+FROM debian:stretch
 ENV container docker
 
 RUN apt-get -y update && \
     apt-get -y install \
         git vim parted \
         quilt realpath qemu-user-static debootstrap zerofree pxz zip dosfstools \
-        bsdtar libcap2-bin rsync grep \
+        bsdtar libcap2-bin rsync grep udev xz-utils \
+# addition by mtc. unsure why
         sudo systemd systemd-sysv\
+# may need to strip above out
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -p '$1$9q2vAGyh$CxldNzX2DDlLSGA4kymTB1' tim
