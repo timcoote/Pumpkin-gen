@@ -8,6 +8,6 @@ policykit-1
 gvfs
 rfkill
 # should pick up newest version
-wicd-gtk
+# does not work: cannot get dhcp address: wicd-gtk
 ansible
 #chromium-browser rpi-chromium-mods
