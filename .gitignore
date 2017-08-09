@@ -1,4 +1,5 @@
 deploy/*
+*.deb
 output*
 smart-home
 work/*
