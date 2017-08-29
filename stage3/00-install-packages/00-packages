@@ -11,3 +11,4 @@ rfkill
 # does not work: cannot get dhcp address: wicd-gtk
 ansible
 #chromium-browser rpi-chromium-mods
+gldriver-test
