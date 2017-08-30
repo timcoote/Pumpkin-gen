@@ -11,8 +11,9 @@ else
 fi
 
 on_chroot apt-key add - < files/raspberrypi.gpg.key
+# had to download the key into a file in this structure as I cannot get apt-key to work in situ
+on_chroot apt-key add - < files/ansible.gpg.key
 on_chroot << EOF
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 apt-get update
 apt-get dist-upgrade -y
 EOF

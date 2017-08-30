@@ -1,3 +1,8 @@
+working with fpm and building the local repo in /home/pi/debs, this: http://bit.ly/2wPWyAY may show how to remove the error
+that started in Stretch complaining about no Release file.
+
+move to Stretch from Jessie firmed up apt's security model, so local repo now needs to be signed.
+
 build out pi-gen (but not much more)
 
 
