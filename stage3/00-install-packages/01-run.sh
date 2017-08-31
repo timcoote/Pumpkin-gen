@@ -30,5 +30,6 @@ dpkg-scanpackages . /dev/null > Packages
 apt-ftparchive release . > Release
 gpg --batch --yes --clearsign --output  InRelease Release
 apt update 
+gpgconf --kill gpg-agent
 
 EOF
