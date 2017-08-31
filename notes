@@ -1,5 +1,5 @@
 build out pi-gen (but not much more)
-
+---2017-8-31: reverting some of the debugging changes that I made below with a view to more closely tracking upstream on the dev branch
 
 ## the approach below seems to build A disk image, but not clear how to automate within pi-gen, nor what to do about the hubaccess code (CONTAINER_NAME
 # is set to pigen_work (as set up on the build-docker.sh script)
