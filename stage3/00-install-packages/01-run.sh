@@ -20,7 +20,7 @@ on_chroot << EOF
 
 cd /home/pi/
 
-gpg --batch --generate-key gpgkeyin
+gpg --batch --gen-key gpgkeyin
 gpg -a --export > localpubkey.asc
 cat localpubkey.asc | apt-key add -
 cd debs
@@ -30,6 +30,8 @@ dpkg-scanpackages . /dev/null > Packages
 apt-ftparchive release . > Release
 gpg --batch --yes --clearsign --output  InRelease Release
 apt update 
+# otherwise the chroot /dev directory remains busy
 gpgconf --kill gpg-agent
-
+# --force-yes is deprecated, so removed. If / when a useful error occurs the newer --allow flag could be used
+apt -y install  hubaccess pushkeys hub-connect
 EOF
