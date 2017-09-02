@@ -1,0 +1,11 @@
+sudo dd if=/dev/zero of=virtualfs1 bs=1024 count=10240
+sudo dd if=/dev/zero of=virtualfs2 bs=1024 count=10240
+
+sudo losetup /dev/loop0 virtualfs1
+sudo losetup -f
+sudo losetup /dev/loop1 virtualfs2
+sudo losetup -f
+
+sudo losetup -d /dev/loop0
+sudo losetup -d /dev/loop1
+
