@@ -14,7 +14,6 @@ bootstrap(){
 	else
 		local BOOTSTRAP_CMD=debootstrap
 	fi
-        echo "in bootstrap $BOOTSTRAP_CMD  $STAGE_DIR"
 
 	capsh --drop=cap_setfcap -- -c "${BOOTSTRAP_CMD} --components=main,contrib,non-free \
 		--arch armhf \
@@ -70,8 +69,6 @@ unmount_image(){
 export -f unmount_image
 
 on_chroot() {
-        echo "in on_chroot $1 $2 $3"
-
 	if ! mount | grep -q "$(realpath "${ROOTFS_DIR}"/proc)"; then
 		mount -t proc proc "${ROOTFS_DIR}/proc"
 	fi
