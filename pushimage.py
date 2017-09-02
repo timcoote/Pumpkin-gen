@@ -16,4 +16,5 @@ print (s3.list_buckets ())
 config = TransferConfig (multipart_threshold=5 * GB) # avoid multipart uploads otherwise ansible cannot download them
 
 print (sys.argv[1])
-#s3.upload_file ("deploy/{}".format (sys.argv[1]), 'pumpco', "{}".format(phile), Config=config)
+
+s3.upload_file ("deploy/{}".format (sys.argv[1]), 'pumpco', "{}".format(sys.argv[1]), Config=config)
