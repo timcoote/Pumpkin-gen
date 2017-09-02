@@ -18,8 +18,8 @@ alacarte rc-gui sense-hat
 claws-mail
 tree
 #scratch nuscratch
-greenfoot bluej
-nodered
+#greenfoot bluej
+#nodered
 libgl1-mesa-dri libgles1-mesa libgles2-mesa xcompmgr
 geany
 piclone
