@@ -1,3 +1,4 @@
+*.deb
 deploy/*
 work/*
 config
