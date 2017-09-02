@@ -1,10 +1,10 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 run_sub_stage()
 {
 	log "Begin ${SUB_STAGE_DIR}"
 	pushd ${SUB_STAGE_DIR} > /dev/null
-	for i in {00..09}; do
+	for i in {00..99}; do
 		if [ -f ${i}-debconf ]; then
 			log "Begin ${SUB_STAGE_DIR}/${i}-debconf"
 			on_chroot << EOF
