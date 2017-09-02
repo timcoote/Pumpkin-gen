@@ -2,6 +2,7 @@
 deploy/*
 work/*
 config
+output.build*
 postrun.sh
 SKIP
 .pc
