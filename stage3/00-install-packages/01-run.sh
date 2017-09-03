@@ -1,12 +1,13 @@
 #!/bin/bash -ex
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
-
+ha_v=0.62
+hc_v=0.0.1
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
 install -v -m 644 files/hubaccess.list ${ROOTFS_DIR}/etc/apt/sources.list.d
-install -v -o 1000 -g 1000 -D files/hubaccess_0.61_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/pushkeys_0.61_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/hub-connect_0.0.1_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/hubaccess_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/pushkeys_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/hub-connect_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/gpgkeyin ${ROOTFS_DIR}/home/pi
 on_chroot << EOF
 #update-alternatives --install /usr/bin/x-www-browser \
