@@ -34,4 +34,3 @@ install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.local/share/desktop-direct
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.ssh"
 install -v -m 400 -o 1000 -g 1000 files/hubcentral.pub ${ROOTFS_DIR}/home/pi/.ssh/authorized_keys
 
-pip3 install --install-option="--flavor=embed_shared" python_openzwave
