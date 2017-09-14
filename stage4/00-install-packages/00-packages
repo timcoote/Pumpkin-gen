@@ -14,7 +14,7 @@ python-pip python3-pip
 #python3-numpy
 pypy
 #minecraft-pi python-minecraftpi
-alacarte rc-gui sense-hat
+alacarte rc-gui # sense-hat
 claws-mail
 tree
 #scratch nuscratch
@@ -29,7 +29,7 @@ python-twython python3-twython
 python-smbus python3-smbus
 python-flask python3-flask
 python-picraft python3-picraft
-python-sense-emu python3-sense-emu sense-emu-tools python-sense-emu-doc
+#python-sense-emu python3-sense-emu sense-emu-tools python-sense-emu-doc
 pprompt
 #scratch2
 #python3-thonny

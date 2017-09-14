@@ -1,1 +1,1 @@
-pip3 install --install-option="--flavor=embed_shared" python_openzwave
+pip3 install python_openzwave --install-option="--flavor=embed_shared"
