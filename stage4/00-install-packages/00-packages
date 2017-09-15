@@ -1,3 +1,4 @@
+libudev-dev
 java-common oracle-java8-jdk
 #libreoffice-sdbc-hsqldb
 #sonic-pi
@@ -12,7 +13,7 @@ fonts-liberation2
 smartsim
 python-pip python3-pip
 #python3-numpy
-pypy
+#pypy
 #minecraft-pi python-minecraftpi
 rc-gui # alacarte rc-gui # sense-hat
 claws-mail
