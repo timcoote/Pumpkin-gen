@@ -28,5 +28,3 @@ RUN  rm -f /lib/systemd/system/local-fs.target.wants/*; \
 COPY . /pi-gen/
 
 VOLUME [ "/sys/fs/cgroup", "/pi-gen/work", "/pi-gen/deploy"]
-
-CMD ["/sbin/init"]
