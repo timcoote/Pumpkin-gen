@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
-ha_v=0.62
+ha_v=0.63
 hc_v=0.0.1
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
