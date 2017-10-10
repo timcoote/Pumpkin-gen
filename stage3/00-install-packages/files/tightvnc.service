@@ -1,0 +1,14 @@
+# based on: http://bit.ly/2yb9hea
+
+[Unit]
+Description=TightVNC remote desktop server
+After=sshd.service
+ 
+[Service]
+Type=dbus
+ExecStart=/usr/bin/vncserver :1
+User=pi
+Type=forking
+ 
+[Install]
+WantedBy=multi-user.target
