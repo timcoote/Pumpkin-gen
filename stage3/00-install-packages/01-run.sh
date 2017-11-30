@@ -45,7 +45,12 @@ apt update
 gpgconf --kill gpg-agent
 # --force-yes is deprecated, so removed. If / when a useful error occurs the newer --allow flag could be used
 # or move these to one of the xx-packages files
-# required for sensei to be able to optain mac address
+
+# AVH ensuring that these are present before we try and install netifaces
+apt -y install python3
+apt -y install python3-pip
+
+# AVH required for sensei to be able to optain mac address
 pip3 install netifaces
 apt -y install  hubaccess pushkeys hub-connect sensei filebeat
 EOF
