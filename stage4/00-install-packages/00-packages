@@ -11,6 +11,10 @@ debian-reference-en dillo x2x
 raspberrypi-net-mods raspberrypi-ui-mods
 smartsim
 python-pip python3-pip
+
+# AVH required for sensei to be able to optain mac address
+pip3 install netifaces
+
 #python3-numpy
 #pypy
 #minecraft-pi python-minecraftpi
