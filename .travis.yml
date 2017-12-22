@@ -9,8 +9,6 @@ before_install:
   - pip install --user awscli
   - aws  s3 sync --exact-timestamps   --exclude "*" --include "*.deb" s3://pumpco/ stage3/00-install-packages/files/
 
-language: ruby
-
 sudo: enabled
 
 install: "./travis.scripts/dependencies.sh"
