@@ -5,7 +5,7 @@ set -ev
 # copied from dnf, so not working as expected sudo apt install -y docker-compose docker python3-dateutil rng-tools rake awscli python git libselinux-python
 sudo apt install -y docker.io rng-tools #python3-dateutil rng-tools rake python git libselinux-python
 # increase loopbacks
-loops
+./loops
 # ARM magic
 echo -n ":arm:M::\\x7fELF\\x01\\x01\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x28\\x00:\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\x00\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xff\\xfe\\xff\\xff\\xff:/usr/bin/qemu-arm-static:" > /proc/sys/fs/binfmt_misc/register  || true # true in case the scrips has run before
 # launch the build and upload results
