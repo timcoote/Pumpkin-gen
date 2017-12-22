@@ -1,14 +1,12 @@
 env:
   global:
-    # include $HOME/.local/bin for `aws`
-    - PATH=$HOME/.local/bin:$PATH
-
+  - PATH=$HOME/.local/bin:$PATH
+  - secure: kRCMUJykiUqYrmrGAxv3zvVdugBOWgiUkHi4a48lv/X3ToKQc37b3R4ZJovsjU7zRvV4qzp3gonWzPIBnkU6D10EMWQCLS0S0GcNkCtfAgabXjS0u65H73urkYb/Ee738A3/Jge22fx9+LSK7kLO1u+iPOnGMEsE0bTqrV91nrZGsDtk+Ks8EpzBFmvWlLptvRlUFr4xq7ZNiquX8Ssyvq+FxJz+qs3rWtiPCudit56np96c9ZzFwG/eNi5/+vVbFqSX15MX5ijpciM5YxPHov+7/JGcmGApYKfEiqgJGjeyf9NuaRre6s5TXj7Bb6/mDM5LACgkqrj8JkM3sAjvOaVi7eLNgsW5KBZbfO1azwwgDN9kp+Pk9xS20MQClw5Kz5QWjNiRmD/MlPbKgxKiQ0JqBlPD7i0sN3hcwuIvs1zhvJ08JhG5szHu6c87iEYD1fOO7WBi9vAhIP8qqmv95U8SoNq2lvq8PbgHCLOxCmc5H8yWBiy5pxRIB/hVPHtubGD4tJe5JkluHn/B6JanBk3OJwyrPzJj494FLIAz6vZBNYwbZB1PYkArSEduyts+gsjgE64swVgFtay9B26D9UnjdN1iFDJJpuhDXs6tghUThVMZY8c0JxHQ7yd5PTcwtCLmSoJSdk0OFvUgHOgimdkDnrsdOSo9Qsv1fAiaqM0=
+  - secure: ZFle3oDnXfp/hDltsesfm6rv2/JmSnrq5kyAyaZA1vzPRt4GaxjrQ5ujeOb2MXfCMKcYzTJ7qMYcu9E4H9gu2swJgQcRVS9WXeFVIPjcPA54cwyAYkAgEoOmzzKiJ64UDhtZ6kkEe5fjlIAnwS/3pmCq8Cah2mWrwCygWE2RlZx7hLiKfLCgGPVnTIrqHKc/liwuHYn+QFhBs3Uy8rYHw+RuDxpFhcTfdGAx2P2yU2KwufrI8EwUV0q5RTg89JDFTvKkyqTgP5UzfTpQ93XI2mwyLp8UR+eMqaIo5Jg51HszZ9vS3LYLeea/kONzE5CcNzuDp2dbm6DCUlNftL38+8R97kqU2feqIoiL56iqM1FfCY7yzmqW0fJHNwkOB0u0WhpuKApbDkpbfhY0sY2g4L3o2z/K8HLGSDKTfqRMaVX6MAnYlnIR9JAghP3mXrgwELJwvvmVA2g5Ota0pfEPYwQGYja4nHVJpz7/4E2+DDa1JXNY2vjiZjiYx7FCQnZI8Q8vK7UcGXDom4V4Q9+vi0dQDlbdmQE/Ev0uhJDbxtFb1/CffEVgk9BAJkJFcycIDGeVD2X7rXmjlzQCvWcKm8IGqzs2W9yA+Ynp7msfFH7gzSDTI+FMTV/BooTRALtAKhEN29ts199bAst5y36PNuMDhg14WMGmRtA7q+5EYUY=
 before_install:
-  # set up awscli packages
+  - ./travis.scripts/creds.sh
   - pip install --user awscli
   - aws  s3 sync --exact-timestamps   --exclude "*" --include "*.deb" s3://pumpco/ stage3/00-install-packages/files/
-
 language: ruby
 sudo: enabled
-
-install: ./travis.scripts/dependencies.sh
+install: "./travis.scripts/dependencies.sh"

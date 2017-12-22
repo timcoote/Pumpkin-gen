@@ -11,3 +11,14 @@ task :default do
    files = `md5sum stage3/00-install-packages/files/*`
    puts files
 end
+
+# reminder on how to get the travis stuff for encrypting, for build automation
+file "travis" do
+    `gem install travis`
+end
+
+# build automation to insert creds into .travis.yml
+task "encrypt_aws_creds" do
+    `travis encrypt AWS_ACCESS_KEY_ID="$(aws configure get aws_access_id)" --add`
+    `travis encrypt AWS_SECRET_ACCESS_KEY="$(aws configure get aws_secret_access_key)" --add`
+end
