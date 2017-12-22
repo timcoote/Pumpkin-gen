@@ -1,4 +1,4 @@
 language: ruby
 sudo: enabled
 
-install: ./travis.scripts/dependencies
+install: ./travis.scripts/dependencies.sh
