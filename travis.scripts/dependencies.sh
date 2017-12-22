@@ -2,7 +2,8 @@
 # this is a reimplementation of the Vagrantfile of the EC2 builder for this repo, for a Travis build
 set -ev
 # grab dependencies
-sudo apt install -y docker-compose docker python3-dateutil rng-tools rake awscli python git libselinux-python
+# copied from dnf, so not working as expected sudo apt install -y docker-compose docker python3-dateutil rng-tools rake awscli python git libselinux-python
+sudo apt install -y docker-compose docker rng-tools #python3-dateutil rng-tools rake python git libselinux-python
 # increase loopbacks
 loops
 # ARM magic
