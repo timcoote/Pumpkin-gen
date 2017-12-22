@@ -1,3 +1,8 @@
+env:
+  global:
+    # include $HOME/.local/bin for `aws`
+    - PATH=$HOME/.local/bin:$PATH
+
 language: ruby
 sudo: enabled
 
