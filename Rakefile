@@ -17,8 +17,10 @@ file "travis" do
     `gem install travis`
 end
 
-# build automation to insert creds into .travis.yml
+# build automation to insert creds into .travis.yml. Can use --add flag, but that mangles
+# .travis.yml
 task "encrypt_aws_creds" do
-    `travis encrypt AWS_ACCESS_KEY_ID="$(aws configure get aws_access_id)" --add`
-    `travis encrypt AWS_SECRET_ACCESS_KEY="$(aws configure get aws_secret_access_key)" --add`
+    akid = `travis encrypt AWS_ACCESS_KEY_ID="$(aws configure get aws_access_key_id)" `
+    ask  = `travis encrypt AWS_SECRET_ACCESS_KEY="$(aws configure get aws_secret_access_key)"`
+    puts akid, ask
 end
