@@ -53,7 +53,7 @@ fi
 #$DOCKER build -t pi-gen2 -f Dockerfile2 .
 #$DOCKER pull localhost:5000/iotaa-pi-gen
 echo " before login ${DOCKER_USERNAME}"
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+yes | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 
 if [ "$CONTAINER_EXISTS" != "" ]; then
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}_cont" SIGINT SIGTERM
