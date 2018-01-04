@@ -16,4 +16,5 @@ echo "IMG_NAME='travis-pumpkin'"> config
 
 touch {export-noobs,stage5}/SKIP
 
-time ./build-docker.sh
+time ./build-docker1.sh
+time ./build-docker2.sh
