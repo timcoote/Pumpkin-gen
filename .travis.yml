@@ -10,6 +10,11 @@ before_install:
   - aws  s3 sync --exact-timestamps   --exclude "*" --include "*.deb" s3://pumpco/ stage3/00-install-packages/files/
 
 sudo: enabled
+
+branches:
+  only:
+  - /.*/
+
 jobs:
     include:
         script: rake build_base_docker_image
