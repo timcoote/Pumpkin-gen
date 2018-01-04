@@ -52,8 +52,6 @@ fi
 
 #$DOCKER build -t pi-gen2 -f Dockerfile2 .
 #$DOCKER pull localhost:5000/iotaa-pi-gen
-echo " before login ${DOCKER_USERNAME}"
-echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 
 if [ "$CONTAINER_EXISTS" != "" ]; then
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}_cont" SIGINT SIGTERM
@@ -83,7 +81,8 @@ fi
 # this is not working correctly as it's picking up the wrong container. Need to use the containers name?
 #docker commit $(docker ps -a|head -2| tail -1|awk '{print $1}') localhost:5000/iotaa-pi-gen-stage0
 docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:onetime
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+# hack to avoid docker login requesting an email address
+echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 docker push timcoote/iotaa-pi-gen-stage0:onetime
 #echo "copying results from deploy/"
 #$DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
