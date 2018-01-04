@@ -24,3 +24,9 @@ task "encrypt_aws_creds" do
     ask  = `travis encrypt AWS_SECRET_ACCESS_KEY="$(aws configure get aws_secret_access_key)"`
     puts akid, ask
 end
+
+task "build_base_docker_image" do
+    `docker build -t timcoote/iotaa-pi-gen -f Dockerfile .`
+    `docker push timcoote/iotaa-pi-gen`
+end
+
