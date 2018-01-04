@@ -60,7 +60,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 		-e IMG_NAME=${IMG_NAME}\
                 localhost:5000/iotaa-pi-gen-stage0 \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; ./build2.sh;
+	cd /pi-gen; declare -a STAGES=(1 2 3 4 5); . ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else

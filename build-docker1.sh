@@ -62,7 +62,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 		-e IMG_NAME=${IMG_NAME}\
                  localhost:5000/iotaa-pi-gen \
         bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; ./build1.sh;
+        cd /pi-gen; declare -a STAGES=(0); . ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else
@@ -73,7 +73,7 @@ else
 		"${config_file[@]}" \
                 localhost:5000/iotaa-pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; ./build1.sh &&
+        cd /pi-gen; declare -a STAGES=(0); . ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 fi
@@ -82,7 +82,7 @@ fi
 # this is not working correctly as it's picking up the wrong container. Need to use the containers name?
 #docker commit $(docker ps -a|head -2| tail -1|awk '{print $1}') localhost:5000/iotaa-pi-gen-stage0
 docker commit ${CONTAINER_NAME} localhost:5000/iotaa-pi-gen-stage0
-docker push localhost:5000/iotaa-pi-gen-stage0
+docker push localhost:5000/iotaa-pi-gen-stage0:onetime
 #echo "copying results from deploy/"
 #$DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
 #ls -lah deploy
