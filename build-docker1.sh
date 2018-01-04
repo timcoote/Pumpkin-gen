@@ -80,8 +80,8 @@ fi
 # now commit that container
 # this is not working correctly as it's picking up the wrong container. Need to use the containers name?
 #docker commit $(docker ps -a|head -2| tail -1|awk '{print $1}') localhost:5000/iotaa-pi-gen-stage0
-docker commit ${CONTAINER_NAME} localhost:5000/iotaa-pi-gen-stage0
-docker push localhost:5000/iotaa-pi-gen-stage0:onetime
+docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:onetime
+docker push timcoote/iotaa-pi-gen-stage0:onetime
 #echo "copying results from deploy/"
 #$DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
 #ls -lah deploy
