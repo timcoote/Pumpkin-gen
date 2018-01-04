@@ -8,11 +8,8 @@ before_install:
   - ./travis.scripts/creds.sh
   - pip install --user awscli
   - aws  s3 sync --exact-timestamps   --exclude "*" --include "*.deb" s3://pumpco/ stage3/00-install-packages/files/
+  - rake build_base_docker_image
 
 sudo: enabled
-jobs:
-    include:
-        script: rake build_base_docker_image
-        if: tag =~ ^build
 
 install: "./travis.scripts/dependencies.sh"
