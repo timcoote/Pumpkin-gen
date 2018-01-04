@@ -58,9 +58,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 #      time $DOCKER run --rm --privileged \
 #		timcoote/iotaa:latest \
        time $DOCKER run --privileged \
-# ??		--volumes-from="${CONTAINER_NAME}" --name "${CONTAINER_NAME}_cont" \
 		-e IMG_NAME=${IMG_NAME}\
-#                 localhost:5000/iotaa-pi-gen \
                 timcoote/iotaa-pi-gen
         bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
         cd /pi-gen; declare -a STAGES=(0); . ./build4.sh;
@@ -72,7 +70,6 @@ else
 	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
 		-e IMG_NAME=${IMG_NAME}\
 		"${config_file[@]}" \
-#                localhost:5000/iotaa-pi-gen \
                 timcoote/iotaa-pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
         cd /pi-gen; declare -a STAGES=(0); . ./build4.sh;
