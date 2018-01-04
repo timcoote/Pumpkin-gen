@@ -1,0 +1,4 @@
+FROM localhost:5000/iotaa-pi-gen-stage0
+
+COPY ./build2.sh /pi-gen/
+
