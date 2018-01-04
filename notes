@@ -19,7 +19,9 @@ declare -a STAGES=(1 2 3 ); . ./go3.sh
 /Users/tim/Projects/iotaa/pi-gen/3
 # or even somethign like this:
 declare -a STAGES=(`seq 1 5`); . ./go3.sh
+---
 
+need docker login creds for travis: http://bit.ly/2CCI4qp
 ====
 working with fpm and building the local repo in /home/pi/debs, this: http://bit.ly/2wPWyAY may show how to remove the error
 that started in Stretch complaining about no Release file.
