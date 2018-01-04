@@ -14,3 +14,4 @@ ansible
 gldriver-test
 fonts-droid-fallback
 fonts-liberation2
+rabbitmq-server

@@ -2,6 +2,9 @@
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
 ha_v=0.63
 hc_v=0.0.2
+sens_v=0.2
+filebeat_v=0.5
+
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/.vnc
@@ -9,6 +12,8 @@ install -v -m 644 files/hubaccess.list ${ROOTFS_DIR}/etc/apt/sources.list.d
 install -v -o 1000 -g 1000 -D files/hubaccess_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/pushkeys_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/hub-connect_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/sensei_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/gpgkeyin ${ROOTFS_DIR}/home/pi
 install -v -m 600 -o 1000 -g 1000 -D files/passwd ${ROOTFS_DIR}/home/pi/.vnc
 install -v -m 600 -D files/wpa_supplicant.conf ${ROOTFS_DIR}/etc/wpa_supplicant/wpa_supplicant.conf
@@ -40,5 +45,6 @@ apt update
 gpgconf --kill gpg-agent
 # --force-yes is deprecated, so removed. If / when a useful error occurs the newer --allow flag could be used
 # or move these to one of the xx-packages files
-apt -y install  hubaccess pushkeys hub-connect
+
+apt -y install  hubaccess pushkeys hub-connect sensei filebeat
 EOF

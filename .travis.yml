@@ -1,0 +1,14 @@
+env:
+  global:
+  - PATH=$HOME/.local/bin:$PATH
+  - secure: llx6cWTO1nI1AnA+y0c5Otxr9/WFnlgTk1yI1aEfyQ027qW9G3duP6vFtqtJ/rqENYpy5tcaFkqOyfbWeVuYE07UqyT06NdUdTK69yvrK1Dag3iOIlPjNIWADSaMt5F5ZbdCBqLbZa5d6R1ZUPrYr2w4gbNm1jxgMVYyxC7cYrebFcRDyE0XEq6qOYyZo7qWwHU7SwA/bKk1dbwwiBhKeGeydM4T30Q627WJk4aV/B1Sil7M8GQZnfHh6hu82TT288JxsLieR2Q1rsHUuN5X3mGauVgUYDRqGmHNmw8WuQgQzsQNJAa5WTTuB3Png1dwo03awiJAzvmbEHSccj+Zh91yfx2I4a4msyiaZGo64Qx+enWG9lXP6y10yiyAu7gaz1Ffez5HpKGJAyUZDRWc/gRxi0mJMTwS2RWQehUXCAp42mDGeYFUqDjp9AlRG4epr7fAk2+CqBCgqgrpkNfLeHyI00j6u4pzuITUlRk2AFt6LaZzLBJVWu8vwG15oz0aAfHEwpfruwoq8y+2KDIXLF+tS03xHxxOcpLWTkFQyB9syj6PUPibCN2Zr0lcxWk/lC/z30N9GiOlXwFUXJIG7dmDttnC8iihdV6q/8pCnN/Bd4S/pVu9l5fG6We2UtDXm3E9xpPvm5iAEBclvuLmKB1YXW+sfLPy6fDBpRtFaTo=
+  - secure: fN5bs7fLMQDHZ2u597nCBEp1QFsg3BZBQD/SnnZa5sbvTgMgi+R1+1I7vlpoWPxwPhm57ajMOWE2XC8TM+iX/MnJzUy8kxw8vY17yb5i27LMtXzyZxY78ZY/ioPGwMe0KmwQAHFitEX8bfUMCNSWUsw3hJQAtTKvqPM7oCCLDBwP5h4oXoIjVBxkN5/Veyg0L/NKMfEuZrLF40gWNv5zm+K7gyXxTL45GfG09GbQ3Q4DZrgFoYBeTuR8ao/PtGA22ObwPCVVXG4zMZOIYxsgbx0SfCnE9vm+sSIWAonvMU0088qZ2PBFh8RWlpJ2SVxgJvkjchaYRELPZKmk2XoyABSanfyDCy+Yvj9eO5M5WZy653p5OgylwYRMJXqdGT8M2zXrTQnTRkFyN0SWH3i0ae0QEH446dm1JEDnRXMP6DQ9BGC+oD6pW0fMPekvpeSpJ7hW9lk+jEGWZROcO8n0AMwYQXgdxcdIww/uXYJ0oq+K/ReD/z6kixbaczihpqBkhwSMlw110fZj/C4Tj6ayvSy0GCgO3sCER4L5vkUlQM+O8PQhkfCy/bCRbF+I/0vdhUpWgZWNCxT1cJ9HSXqEk1mcUWiVryMTKLECd0jU8WfkTaslSMxQ3cqgbhVJDVZ741D5qvkG8lu1rz3dVXWe7P1S7GWBudk6SkkzvXA3fAM=
+
+before_install:
+  - ./travis.scripts/creds.sh
+  - pip install --user awscli
+  - aws  s3 sync --exact-timestamps   --exclude "*" --include "*.deb" s3://pumpco/ stage3/00-install-packages/files/
+
+sudo: enabled
+
+install: "./travis.scripts/dependencies.sh"
