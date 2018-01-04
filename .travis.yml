@@ -25,5 +25,4 @@ branches:
 
 install:
     #    - rake build_base_docker_image
-    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - ./travis.scripts/dependencies.sh
