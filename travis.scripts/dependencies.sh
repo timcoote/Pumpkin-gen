@@ -16,7 +16,8 @@ echo "IMG_NAME='travis-pumpkin'"> config
 
 touch {export-noobs,stage5}/SKIP
 
-time ./build-docker1.sh
+#time ./build-docker1.sh
+# docker rm -v pigen_work
 time ./build-docker2.sh
 
 aws s3 sync --exact-timestamps --region eu-west-2  --exclude "*" --include "*.zip" --include "*.info" deploy/ s3://pumpco
