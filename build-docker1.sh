@@ -52,6 +52,7 @@ fi
 
 #$DOCKER build -t pi-gen2 -f Dockerfile2 .
 #$DOCKER pull localhost:5000/iotaa-pi-gen
+echo " before login ${DOCKER_USERNAME}"
 docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 
 if [ "$CONTAINER_EXISTS" != "" ]; then
