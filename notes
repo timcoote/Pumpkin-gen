@@ -22,6 +22,10 @@ declare -a STAGES=(`seq 1 5`); . ./go3.sh
 ---
 
 need docker login creds for travis: http://bit.ly/2CCI4qp
+
+---
+The split docker-build{1,2}.sh build the different stages (up to 0, from 1) initially, while keeping the scripts all very similar (there is only one build.sh)
+
 ====
 working with fpm and building the local repo in /home/pi/debs, this: http://bit.ly/2wPWyAY may show how to remove the error
 that started in Stretch complaining about no Release file.
