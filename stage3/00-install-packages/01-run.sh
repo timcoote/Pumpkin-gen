@@ -46,5 +46,5 @@ gpgconf --kill gpg-agent
 # --force-yes is deprecated, so removed. If / when a useful error occurs the newer --allow flag could be used
 # or move these to one of the xx-packages files
 
-apt -y install  hubaccess pushkeys hub-connect sensei filebeat
+apt -y install  hubaccess pushkeys hub-connect sensei-core filebeat
 EOF
