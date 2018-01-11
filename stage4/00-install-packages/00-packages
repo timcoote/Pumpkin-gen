@@ -14,8 +14,8 @@ python-pip python3-pip
 #python3-numpy
 #pypy
 #minecraft-pi python-minecraftpi
-rc-gui # alacarte rc-gui # sense-hat
-claws-mail
+#rc-gui # alacarte rc-gui # sense-hat
+#claws-mail
 tree
 #scratch nuscratch
 #greenfoot bluej
