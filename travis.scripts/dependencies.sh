@@ -16,7 +16,7 @@ echo "IMG_NAME='travis-pumpkin'"> config
 
 touch {export-noobs,stage5}/SKIP
 
-#time ./build-docker1.sh
+time ./build-docker1.sh
 #docker rm -v pigen_work
 time CONTINUE=1 ./build-docker2.sh
 
