@@ -153,7 +153,7 @@ export STAGE_WORK_DIR
 export PREV_STAGE
 export PREV_STAGE_DIR
 export ROOTFS_DIR
-export PREV_ROOTFS_DIR #=`cat ${WORK_DIR}/prev_rootfs_dir`
+export PREV_ROOTFS_DIR
 export IMG_SUFFIX
 export NOOBS_NAME
 export NOOBS_DESCRIPTION
