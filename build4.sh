@@ -173,8 +173,9 @@ dependencies_check ${BASE_DIR}/depends
 
 mkdir -p ${WORK_DIR}
 log "Begin ${BASE_DIR}"
+log "${STAGES}"
 
-for STAGES in "${STAGES[@]}"; do
+for STAGE in "${STAGES[@]}"; do
     for STAGE_DIR in "${BASE_DIR}/stage${STAGES}"; do
 	run_stage
     done
