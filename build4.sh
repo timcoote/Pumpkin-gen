@@ -113,7 +113,7 @@ run_stage(){
 	PREV_STAGE_DIR=${STAGE_DIR}
 	PREV_ROOTFS_DIR=${ROOTFS_DIR}
         echo "${PREV_ROOTFS_DIR}" > "${WORK_DIR}/prev_rootfs_dir"
-        echo `cat "${WORK_DIR}/prev_rootfs_dir"
+        echo `cat "${WORK_DIR}/prev_rootfs_dir"`
 	popd > /dev/null
 	log "End ${STAGE_DIR}"
 }
@@ -153,7 +153,7 @@ export STAGE_WORK_DIR
 export PREV_STAGE
 export PREV_STAGE_DIR
 export ROOTFS_DIR
-export PREV_ROOTFS_DIR
+export PREV_ROOTFS_DIR #=`cat ${WORK_DIR}/prev_rootfs_dir`
 export IMG_SUFFIX
 export NOOBS_NAME
 export NOOBS_DESCRIPTION
