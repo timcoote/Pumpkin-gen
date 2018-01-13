@@ -82,6 +82,8 @@ run_stage(){
 	log "Begin ${STAGE_DIR}"
 	STAGE=$(basename ${STAGE_DIR})
 	pushd ${STAGE_DIR} > /dev/null
+        dirs
+        ls -l
 	unmount ${WORK_DIR}/${STAGE}
 	STAGE_WORK_DIR=${WORK_DIR}/${STAGE}
 	ROOTFS_DIR=${STAGE_WORK_DIR}/rootfs
