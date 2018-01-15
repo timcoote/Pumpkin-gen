@@ -60,7 +60,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 		-e IMG_NAME=${IMG_NAME}\
                 timcoote/iotaa-pi-gen-stage0:onetime \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; declare -a STAGES=(3 4); source ./build4.sh &&
+	cd /pi-gen; declare -a STAGES=(3 4 5); source ./build4.sh &&
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else
@@ -71,7 +71,7 @@ else
 		"${config_file[@]}" \
                 timcoote/iotaa-pi-gen-stage0:onetime \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-        cd /pi-gen; declare -a STAGES=(3 4); source ./build4.sh &&
+        cd /pi-gen; declare -a STAGES=(3 4 5); source ./build4.sh &&
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 fi
