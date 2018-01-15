@@ -155,7 +155,7 @@ export STAGE_WORK_DIR
 export PREV_STAGE
 export PREV_STAGE_DIR
 export ROOTFS_DIR
-export PREV_ROOTFS_DIR #=`cat ${WORK_DIR}/prev_rootfs_dir`
+export PREV_ROOTFS_DIR=`cat ${WORK_DIR}/prev_rootfs_dir`
 export IMG_SUFFIX
 export NOOBS_NAME
 export NOOBS_DESCRIPTION
@@ -171,11 +171,15 @@ source ${SCRIPT_DIR}/common
 source ${SCRIPT_DIR}/dependencies_check
 
 
+echo "prev root fs: ${PREV_ROOTFS_DIR}"
+
 dependencies_check ${BASE_DIR}/depends
 
 mkdir -p ${WORK_DIR}
 log "Begin ${BASE_DIR}"
 #log "Stages: ${STAGES}, ${STAGES[@]}"
+
+apt update
 
 for STAGES in "${STAGES[@]}"; do
     log "Working through ${STAGES}"
