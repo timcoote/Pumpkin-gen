@@ -2,7 +2,7 @@
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
 ha_v=0.63
 hc_v=0.0.2
-sens_v=0.25
+sens_v=0.26
 filebeat_v=0.51
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
