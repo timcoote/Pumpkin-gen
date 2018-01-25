@@ -46,6 +46,7 @@ apt update
 gpgconf --kill gpg-agent
 # --force-yes is deprecated, so removed. If / when a useful error occurs the newer --allow flag could be used
 # or move these to one of the xx-packages files
+curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
-apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat
+apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs
 EOF
