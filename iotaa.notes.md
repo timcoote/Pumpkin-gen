@@ -5,6 +5,9 @@ where I was trying to break out the build.sh script so that interim build stages
 For example, the initial debootstrap phase takes ~12 minutes on each build.
 
 # Current Build Approaches
+nb these both apply to the repo that builds this repo, nto this repo itself. They are included here
+as a build normallly precedes updating what goes into the build, which is defined here.
+
 ## Vagrant
 Currently this is probably the most robust and simplest approach.
 ```
@@ -18,7 +21,7 @@ The master branch should be checked out by the jenkins task `SDCardBuilder` in `
 requires running the vm that's described in the checkout and which launches with jenkins on `http://192.168.33.20:8081/jenkins`
 login `admin`, password is in the vault somewhere...
 
-## Adding .debs
+# Adding .debs
 .debs are installed in stage3/00-install-packages/01-run.sh. The version to use and the package name need inserting. The version
 is at the top, eg
 ```
