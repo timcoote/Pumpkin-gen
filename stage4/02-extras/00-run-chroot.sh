@@ -8,3 +8,4 @@ pip3 -vvvv install --use-wheel  --find-links=https://s3.eu-west-2.amazonaws.com:
 ln -sf /usr/local/lib/python3.5/dist-packages/python_openzwave/ozw_config /usr/local/etc/openzwave
 
 pip3 install pika
+pip3 install yeelight
