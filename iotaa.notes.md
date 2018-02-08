@@ -1,7 +1,38 @@
+# Introduction
+These are the working notes taken as I was building this process to work in various
+environments (vagrant vm, packer vm, vagrant aws, packer aws). There are separate branches
+where I was trying to break out the build.sh script so that interim build stages could be cached.
+For example, the initial debootstrap phase takes ~12 minutes on each build.
+
+# Current Build Approaches
+## Vagrant
+Currently this is probably the most robust and simplest approach.
+```
+vagrant up --provider=aws
+# check the build has uploaded correctly
+vagrant destroy
+```
+
+## Jenkins
+The master branch should be checked out by the jenkins task `SDCardBuilder` in `ansible-pump/vcs`, which
+requires running the vm that's described in the checkout and which launches with jenkins on `http://192.168.33.20:8081/jenkins`
+login `admin`, password is in the vault somewhere...
+
+## Adding .debs
+.debs are installed in stage3/00-install-packages/01-run.sh. The version to use and the package name need inserting. The version
+is at the top, eg
+```
+adminapp_v=1.1.27
+```
+will use version 1.1.27 (see below in the file). The version must match a package that's available on S3://pumpco.
+
+
+
 2018-1-4: working on travis build using build-docker.
 Need to be able to split into separate build phases to build/cache docker hub images.
 
 This approach works to pass in an environment variable:
+```
 # script in file:
 BASE=$(pwd)
 
@@ -19,6 +50,7 @@ declare -a STAGES=(1 2 3 ); . ./go3.sh
 /Users/tim/Projects/iotaa/pi-gen/3
 # or even somethign like this:
 declare -a STAGES=(`seq 1 5`); . ./go3.sh
+```
 
 ====
 working with fpm and building the local repo in /home/pi/debs, this: http://bit.ly/2wPWyAY may show how to remove the error
