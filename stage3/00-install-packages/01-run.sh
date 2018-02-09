@@ -4,7 +4,7 @@ ha_v=0.63
 hc_v=0.0.2
 sens_v=0.27
 filebeat_v=0.51
-adminapp_v=1.1.27
+adminapp_v=1.1.28
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
