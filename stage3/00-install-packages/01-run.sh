@@ -3,7 +3,7 @@
 ha_v=0.63
 hc_v=0.0.2
 sens_v=0.30
-filebeat_v=0.52
+filebeat_v=0.53
 adminapp_v=1.1.28
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
