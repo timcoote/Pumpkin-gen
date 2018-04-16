@@ -10,6 +10,7 @@ adminapp_v=_full_1.32.8
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/.vnc
 install -v -m 644 files/hubaccess.list ${ROOTFS_DIR}/etc/apt/sources.list.d
+install -v -m 644 files/pumpkin.conf ${ROOTFS_DIR}/etc/sysctl.d
 install -v -o 1000 -g 1000 -D files/hubaccess_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/pushkeys_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/hub-connect_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
@@ -21,6 +22,7 @@ install -v -o 1000 -g 1000 -D files/gpgkeyin ${ROOTFS_DIR}/home/pi
 install -v -m 600 -o 1000 -g 1000 -D files/passwd ${ROOTFS_DIR}/home/pi/.vnc
 install -v -m 600 -D files/wpa_supplicant.conf ${ROOTFS_DIR}/etc/wpa_supplicant/wpa_supplicant.conf
 install -v -D files/tightvnc.service ${ROOTFS_DIR}/lib/systemd/system/tightvnc.service
+install -v -o 1000 -g 1000 -D files/autostart ${ROOTFS_DIR}/home/pi/.config/lxsession/LXDE-pi/autostart
 on_chroot << EOF
 #update-alternatives --install /usr/bin/x-www-browser \
 #  x-www-browser /usr/bin/chromium-browser 86
