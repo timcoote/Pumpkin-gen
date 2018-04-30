@@ -2,9 +2,9 @@
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
 ha_v=0.64
 hc_v=1.0rc3
-sens_v=0.36
+sens_v=0.38
 filebeat_v=0.53
-adminapp_v=_full_1.32.8
+adminapp_v=full_1.32.8
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
