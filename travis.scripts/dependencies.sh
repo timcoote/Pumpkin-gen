@@ -12,8 +12,6 @@ sudo su -c 'echo -n ":arm:M::\\x7fELF\\x01\\x01\\x01\\x00\\x00\\x00\\x00\\x00\\x
 # launch the build and upload results
 rake
 
-echo "IMG_NAME='travis-pumpkin'"> config 
-
 touch {export-noobs,stage5}/SKIP
 
 time ./build-docker.sh
