@@ -14,4 +14,6 @@ before_install:
 
 sudo: enabled
 
-install: "./travis.scripts/dependencies.sh"
+install:
+    - "./travis.scripts/dependencies.sh"
+    -  aws s3 sync --exact-timestamps --region eu-west-2  --exclude "*" --include "*.zip" --include "*.info" deploy/ s3://pumpco
