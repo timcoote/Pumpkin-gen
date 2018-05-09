@@ -58,7 +58,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 #      time $DOCKER run --rm --privileged \
 #		timcoote/iotaa:latest \
        time $DOCKER run --privileged \
-		-e IMG_NAME=${IMG_NAME}\
+		-e IMG_NAME="${IMG_NAME}"\
                 timcoote/iotaa-pi-gen
         bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
         cd /pi-gen; declare -a STAGES=(0 1 2); source ./build4.sh;
@@ -68,7 +68,7 @@ else
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}" SIGINT SIGTERM
 #		pi-gen \
 	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
-		-e IMG_NAME=${IMG_NAME}\
+		-e IMG_NAME="${IMG_NAME}"\
 		"${config_file[@]}" \
                 timcoote/iotaa-pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
