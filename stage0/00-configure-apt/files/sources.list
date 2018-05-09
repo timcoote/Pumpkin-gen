@@ -1,7 +1,5 @@
-# moved to stretch - remove if stretch works
-# deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
 # added for ansible updated
 deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
-deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi
+deb http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
 # Uncomment line below then 'apt-get update' to enable 'apt-get source'
-#deb-src http://archive.raspbian.org/raspbian/ stretch main contrib non-free rpi
+#deb-src http://raspbian.raspberrypi.org/raspbian/ stretch main contrib non-free rpi
