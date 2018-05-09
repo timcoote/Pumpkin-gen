@@ -31,7 +31,7 @@ EOF
 			PACKAGES="$(sed -f "${SCRIPT_DIR}/remove-comments.sed" < "${i}-packages")"
 			if [ -n "$PACKAGES" ]; then
 				on_chroot << EOF
-apt update && apt-get install -y $PACKAGES
+apt update && apt upgrade && apt-get install -y $PACKAGES
 EOF
 			fi
 			log "End ${SUB_STAGE_DIR}/${i}-packages"
