@@ -26,7 +26,8 @@ task "encrypt_aws_creds" do
 end
 
 task "build_base_docker_image" do
-    `docker build -t timcoote/iotaa-pi-gen -f Dockerfile .`
-    `docker push timcoote/iotaa-pi-gen`
+#    `docker build -t timcoote/iotaa-pi-gen -f Dockerfile .`
+#    `docker push timcoote/iotaa-pi-gen`
+    `docker pull timcoote/iotaa-pi-gen`
 end
 
