@@ -136,7 +136,7 @@ if [ -z "${IMG_NAME}" ]; then
 fi
 
 export USE_QEMU=${USE_QEMU:-0}
-export IMG_DATE=${IMG_DATE:-"$(date +%Y-%m-%d)"}
+export IMG_DATE=${IMG_DATE:-"today"}
 
 export BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export SCRIPT_DIR="${BASE_DIR}/scripts"
