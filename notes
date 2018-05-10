@@ -3,7 +3,9 @@ based on work, below. manual launch with `vagrant up --provider aws`, having pul
 log in, got to `Pumpkin-gen` and run `time ./build-docker1.sh 2>&1 |tee output.build`, which does the usual build stuff, leaving a docker container that
 needs committing to make it the starting point for the next stage. I've not yet pushed this. After commit, then run `time ./build-docker2.sh 2>&1 |tee output2`
 
-current issue with the first stage in that it cannot find wpasupplicant or wireless-tools
+current issue with the first stage in that it cannot find wpasupplicant or wireless-tools: this may be travis-ci specific?
+
+when using ec2 instance, keep using up the loop devices. use `sudo losetup -D` to clear them down.
 
 2018-1-4: working on travis build using build-docker.
 Need to be able to split into separate build phases to build/cache docker hub images.

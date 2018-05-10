@@ -50,7 +50,7 @@ if [ "$CONTAINER_EXISTS" != "" ] && [ "$CONTINUE" != "1" ]; then
 	exit 1
 fi
 
-#$DOCKER build -t pi-gen2 -f Dockerfile2 .
+$DOCKER build -t pi-gen -f Dockerfile .
 #$DOCKER pull localhost:5000/iotaa-pi-gen
 
 if [ "$CONTAINER_EXISTS" != "" ]; then
@@ -59,7 +59,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 #		timcoote/iotaa:latest \
        time $DOCKER run --privileged \
 		-e IMG_NAME="${IMG_NAME}"\
-                timcoote/iotaa-pi-gen
+                pi-gen \
         bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
         cd /pi-gen; declare -a STAGES=(0 1 2); source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
@@ -70,7 +70,7 @@ else
 	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
 		-e IMG_NAME="${IMG_NAME}"\
 		"${config_file[@]}" \
-                timcoote/iotaa-pi-gen \
+                pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
         cd /pi-gen; declare -a STAGES=(0 1 2); source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
