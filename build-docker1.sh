@@ -2,6 +2,9 @@
 
 DOCKER="docker"
 set +e
+#declare -a STAGES=(0)
+declare -a STAGES=(1 2 3 4 5)
+
 $DOCKER ps >/dev/null 2>&1
 if [ $? != 0 ]; then
 	DOCKER="sudo docker"
@@ -61,7 +64,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
                 -e IMG_NAME="${IMG_NAME}"\
                 pi-gen \
                 bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-        cd /pi-gen; declare -a STAGES=(0); source ./build4.sh;
+        cd /pi-gen; source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else
@@ -71,16 +74,19 @@ else
 		"${config_file[@]}" \
                 pi-gen \
                 bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-        cd /pi-gen; declare -a STAGES=(0); source ./build4.sh;
+        cd /pi-gen; source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 fi
 
 # now commit that container $SPRINT defined in config
-docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
-# hack to avoid docker login requesting an email address. nb env. vars coming from travis
-echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+if [ ${STAGES[${#STAGES[@]}-1]} -ge 4 ]
+then
+    docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+    # hack to avoid docker login requesting an email address. nb env. vars coming from travis
+    echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+    docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+fi
 
 echo "copying results from deploy/"
 $DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
