@@ -2,8 +2,6 @@
 
 DOCKER="docker"
 set +e
-#declare -a STAGES=(0)
-declare -a STAGES=(1 2 3 4 5)
 
 $DOCKER ps >/dev/null 2>&1
 if [ $? != 0 ]; then
@@ -21,6 +19,13 @@ if [ -f config ]; then
 	config_file=("--env-file" "$(pwd)/config")
 	source config
 fi
+
+#declare -a STAGES=(0)
+# PI_GEN="pi-gen"
+declare -a STAGES=(1 2 3 4 5)
+PI_GEN="timcoote/iotaa-pi-gen-stage0:"$SPRINT""
+
+echo "pi-gen: $PI_GEN"
 
 CONTAINER_NAME=${CONTAINER_NAME:-pigen_work}
 CONTINUE=${CONTINUE:-0}
@@ -62,7 +67,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 #      time $DOCKER run --rm --privileged \
                 --volumes-from="${CONTAINER_NAME}" --name "${CONTAINER_NAME}_cont" \
                 -e IMG_NAME="${IMG_NAME}"\
-                pi-gen \
+                "${PI_GEN}" \
                 bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
         cd /pi-gen; source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
@@ -72,7 +77,7 @@ else
 	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
 		-e IMG_NAME="${IMG_NAME}"\
 		"${config_file[@]}" \
-                pi-gen \
+                "${PI_GEN}" \
                 bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
         cd /pi-gen; source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
