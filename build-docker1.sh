@@ -83,7 +83,7 @@ fi
 #docker commit $(docker ps -a|head -2| tail -1|awk '{print $1}') localhost:5000/iotaa-pi-gen-stage0
 docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
 # hack to avoid docker login requesting an email address
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
 #echo "copying results from deploy/"
 #$DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
