@@ -62,7 +62,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 		-e IMG_NAME="${IMG_NAME}"\
                 pi-gen \
         bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-        cd /pi-gen; declare -a STAGES=(0 1 2); source ./build4.sh;
+        cd /pi-gen; declare -a STAGES=(0); source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else
@@ -73,7 +73,7 @@ else
 		"${config_file[@]}" \
                 pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-        cd /pi-gen; declare -a STAGES=(0 1 2); source ./build4.sh;
+        cd /pi-gen; declare -a STAGES=(0); source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 fi
@@ -81,9 +81,9 @@ fi
 # now commit that container
 # this is not working correctly as it's picking up the wrong container. Need to use the containers name?
 #docker commit $(docker ps -a|head -2| tail -1|awk '{print $1}') localhost:5000/iotaa-pi-gen-stage0
-docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:onetime
+docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
 # hack to avoid docker login requesting an email address
-echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
 #echo "copying results from deploy/"
 #$DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
