@@ -12,12 +12,12 @@ sudo su -c 'echo -n ":arm:M::\\x7fELF\\x01\\x01\\x01\\x00\\x00\\x00\\x00\\x00\\x
 # launch the build and upload results
 rake
 
-echo "IMG_NAME='1.35.rc7'"> config 
+#echo "IMG_NAME='1.35.rc7'"> config 
 
 touch {export-noobs,stage5}/SKIP
 
-#time ./build-docker1.sh
-#docker rm -v pigen_work
+time ./build-docker1.sh
+docker rm -v pigen_work
 #time CONTINUE=1 ./build-docker2.sh
 time ./build-docker2.sh
 

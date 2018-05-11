@@ -1,6 +1,8 @@
 #!/bin/bash -ex
 
 DOCKER="docker"
+export SPRINT='1.35'
+
 set +e
 $DOCKER ps >/dev/null 2>&1
 if [ $? != 0 ]; then
@@ -82,8 +84,8 @@ fi
 #docker commit $(docker ps -a|head -2| tail -1|awk '{print $1}') localhost:5000/iotaa-pi-gen-stage0
 docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:onetime
 # hack to avoid docker login requesting an email address
-echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-docker push timcoote/iotaa-pi-gen-stage0:onetime
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
 #echo "copying results from deploy/"
 #$DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
 #ls -lah deploy
