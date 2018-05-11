@@ -1,7 +1,6 @@
 #!/bin/bash -ex
 
 DOCKER="docker"
-export SPRINT='1.35'
 
 set +e
 $DOCKER ps >/dev/null 2>&1
