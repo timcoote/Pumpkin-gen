@@ -20,10 +20,11 @@ if [ -f config ]; then
 	source config
 fi
 
-#declare -a STAGES=(0)
-# PI_GEN="pi-gen"
-declare -a STAGES=(1 2 3 4 5)
-PI_GEN="timcoote/iotaa-pi-gen-stage0:"$SPRINT""
+# alternates for first and subsequent elements
+declare -a STAGES=(0)
+PI_GEN="pi-gen"
+#declare -a STAGES=(1 2 3 4 5)
+#PI_GEN="timcoote/iotaa-pi-gen-stage0:"$SPRINT""
 
 echo "pi-gen: $PI_GEN"
 
