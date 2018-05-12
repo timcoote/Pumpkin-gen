@@ -25,6 +25,8 @@ stages="declare -a STAGES=(0)"   # this hack expands to a declaration of an arra
 PI_GEN="pi-gen"
 #declare -a STAGES=(1 2 3 4 5)
 #PI_GEN="timcoote/iotaa-pi-gen-stage0:"$SPRINT""
+# used in this script, to decide on whether to push the docker image, and sent to the docker run command, too
+eval $stages
 
 echo "pi-gen: $PI_GEN"
 
@@ -86,7 +88,7 @@ else
 fi
 
 # now commit that container $SPRINT defined in config
-if [ ${STAGES[${#STAGES[@]}-1]} -ge 4 ]
+if [ ${STAGES[${#STAGES[@]}-1]} -eq 0 ]
 then
     docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
     # hack to avoid docker login requesting an email address. nb env. vars coming from travis
