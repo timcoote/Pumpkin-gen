@@ -1,3 +1,7 @@
+working on merging build-docker1/2 into one file. remote docker images are not being updated correctly at the moment and
+I don't think that using the pi-gen locally build image is working at all
+
+
 2018-5-10: travis build, still
 based on work, below. manual launch with `vagrant up --provider aws`, having pulled out the actual build part from ansible script
 log in, got to `Pumpkin-gen` and run `time ./build-docker1.sh 2>&1 |tee output.build`, which does the usual build stuff, leaving a docker container that

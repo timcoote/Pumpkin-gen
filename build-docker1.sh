@@ -21,7 +21,7 @@ if [ -f config ]; then
 fi
 
 # alternates for first and subsequent elements
-declare -a STAGES=(0)
+x="declare -a STAGES=(0)"
 PI_GEN="pi-gen"
 #declare -a STAGES=(1 2 3 4 5)
 #PI_GEN="timcoote/iotaa-pi-gen-stage0:"$SPRINT""
@@ -70,7 +70,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
                 -e IMG_NAME="${IMG_NAME}"\
                 "${PI_GEN}" \
                 bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-        cd /pi-gen; source ./build4.sh;
+        cd /pi-gen; "${x}"; source ./build4.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else
