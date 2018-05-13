@@ -21,7 +21,7 @@ EOF
 			PACKAGES="$(sed -f "${SCRIPT_DIR}/remove-comments.sed" < "${i}-packages-nr")"
 			if [ -n "$PACKAGES" ]; then
 				on_chroot << EOF
-apt update && apt-get install --no-install-recommends -y $PACKAGES
+apt update && apt upgrade && apt-get install --no-install-recommends -y $PACKAGES
 EOF
 			fi
 			log "End ${SUB_STAGE_DIR}/${i}-packages-nr"
@@ -31,7 +31,7 @@ EOF
 			PACKAGES="$(sed -f "${SCRIPT_DIR}/remove-comments.sed" < "${i}-packages")"
 			if [ -n "$PACKAGES" ]; then
 				on_chroot << EOF
-apt update && apt upgrade && apt-get install -y $PACKAGES
+apt update && apt upgrade && apt install -y $PACKAGES
 EOF
 			fi
 			log "End ${SUB_STAGE_DIR}/${i}-packages"
@@ -114,6 +114,8 @@ run_stage(){
 	PREV_STAGE="${STAGE}"
 	PREV_STAGE_DIR="${STAGE_DIR}"
 	PREV_ROOTFS_DIR="${ROOTFS_DIR}"
+        echo "${PREV_ROOTFS_DIR}" > "${WORK_DIR}/prev_rootfs_dir"
+        echo `cat "${WORK_DIR}/prev_rootfs_dir"`
 	popd > /dev/null
 	log "End ${STAGE_DIR}"
 }
@@ -134,11 +136,13 @@ if [ -z "${IMG_NAME}" ]; then
 fi
 
 export USE_QEMU="${USE_QEMU:-0}"
-export IMG_DATE="${IMG_DATE:-"$(date +%Y-%m-%d)"}"
+export IMG_DATE=${IMG_DATE:-"${SPRINT}"}
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export SCRIPT_DIR="${BASE_DIR}/scripts"
-export WORK_DIR="${WORK_DIR:-"${BASE_DIR}/work/${IMG_DATE}-${IMG_NAME}"}"
+# just use the DATE (sprint) as the work dir, or we cannot re-use earlier builds
+#export WORK_DIR="${WORK_DIR:-"${BASE_DIR}/work/${IMG_DATE}-${IMG_NAME}"}"
+export WORK_DIR="${WORK_DIR:-"${BASE_DIR}/work/${IMG_DATE}"}"
 export DEPLOY_DIR=${DEPLOY_DIR:-"${BASE_DIR}/deploy"}
 export LOG_FILE="${WORK_DIR}/build.log"
 
@@ -151,10 +155,11 @@ export APT_PROXY
 export STAGE
 export STAGE_DIR
 export STAGE_WORK_DIR
+#are these two used?
 export PREV_STAGE
 export PREV_STAGE_DIR
 export ROOTFS_DIR
-export PREV_ROOTFS_DIR
+export PREV_ROOTFS_DIR=`cat ${WORK_DIR}/prev_rootfs_dir`
 export IMG_SUFFIX
 export NOOBS_NAME
 export NOOBS_DESCRIPTION
@@ -172,25 +177,33 @@ source "${SCRIPT_DIR}/common"
 source "${SCRIPT_DIR}/dependencies_check"
 
 
+echo "prev root fs: ${PREV_ROOTFS_DIR}"
+
 dependencies_check "${BASE_DIR}/depends"
 
 mkdir -p "${WORK_DIR}"
 log "Begin ${BASE_DIR}"
+#log "Stages: ${STAGES}, ${STAGES[@]}"
 
-for STAGE_DIR in "${BASE_DIR}/stage"*; do
+apt update
+
+for STAGES in "${STAGES[@]}"; do
+    log "Working through ${STAGES}"
+    for STAGE_DIR in "${BASE_DIR}/stage${STAGES}"; do
 	run_stage
+    done
 done
 
 CLEAN=1
 for EXPORT_DIR in ${EXPORT_DIRS}; do
 	STAGE_DIR=${BASE_DIR}/export-image
 	# shellcheck source=/dev/null
-	source "${EXPORT_DIR}/EXPORT_IMAGE"
+        source "${EXPORT_DIR}/EXPORT_IMAGE"
 	EXPORT_ROOTFS_DIR=${WORK_DIR}/$(basename "${EXPORT_DIR}")/rootfs
 	run_stage
 	if [ "${USE_QEMU}" != "1" ]; then
 		if [ -e "${EXPORT_DIR}/EXPORT_NOOBS" ]; then
-			# shellcheck source=/dev/null
+                        # shellcheck source=/dev/null
 			source "${EXPORT_DIR}/EXPORT_NOOBS"
 			STAGE_DIR="${BASE_DIR}/export-noobs"
 			run_stage

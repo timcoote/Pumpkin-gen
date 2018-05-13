@@ -14,4 +14,9 @@ rake
 
 touch {export-noobs,stage5}/SKIP
 
+# comment in/out these two lines to get travis to upload an initial docker image for stage0 (also tried modifying to stage2). If left, travis will timeout, before completiion
 time ./build-docker.sh
+#docker rm -v pigen_work
+#time ./build-docker2.sh
+
+aws s3 sync --exact-timestamps --region eu-west-2  --exclude "*" --include "*.zip" --include "*.info" deploy/ s3://pumpco
