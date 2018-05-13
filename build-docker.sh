@@ -20,10 +20,10 @@ if [ -f config ]; then
 fi
 
 # alternates for first and subsequent elements
-#stages="declare -a STAGES=(0)"   # this hack expands to a declaration of an array that gets fed into the build script in docker container
-#PI_GEN="pi-gen"
-stages="declare -a STAGES=(1 2 3 4 5)"
-PI_GEN="timcoote/iotaa-pi-gen-stage0:"$SPRINT""
+stages="declare -a STAGES=(0)"   # this hack expands to a declaration of an array that gets fed into the build script in docker container
+PI_GEN="pi-gen"
+#stages="declare -a STAGES=(1 2 3 4 5)"
+#PI_GEN="timcoote/iotaa-pi-gen-stage0:"$SPRINT""
 # used in this script, to decide on whether to push the docker image, and sent to the docker run command, too
 eval $stages
 
