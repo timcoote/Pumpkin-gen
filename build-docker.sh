@@ -19,6 +19,14 @@ if [ -f config ]; then
 	source config
 fi
 
+# alternates for first and subsequent elements
+#stages="declare -a STAGES=(0)"   # this hack expands to a declaration of an array that gets fed into the build script in docker container
+#PI_GEN="pi-gen"
+stages="declare -a STAGES=(1 2 3 4 5)"
+PI_GEN="timcoote/iotaa-pi-gen-stage0:"$SPRINT""
+# used in this script, to decide on whether to push the docker image, and sent to the docker run command, too
+eval $stages
+
 CONTAINER_NAME=${CONTAINER_NAME:-pigen_work}
 CONTINUE=${CONTINUE:-0}
 PRESERVE_CONTAINER=${PRESERVE_CONTAINER:-0}
@@ -57,11 +65,11 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}_cont" SIGINT SIGTERM
        time $DOCKER run --privileged \
 #      time $DOCKER run --rm --privileged \
-		--volumes-from="${CONTAINER_NAME}" --name "${CONTAINER_NAME}_cont" \
-		-e IMG_NAME="${IMG_NAME}"\
-		pi-gen \
-		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; ./build.sh;
+                --volumes-from="${CONTAINER_NAME}" --name "${CONTAINER_NAME}_cont" \
+                -e IMG_NAME="${IMG_NAME}"\
+                "${PI_GEN}" \
+                bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
+        cd /pi-gen; ${stages}; source ./build.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else
@@ -69,19 +77,29 @@ else
 	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
 		-e IMG_NAME="${IMG_NAME}"\
 		"${config_file[@]}" \
-		pi-gen \
-		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; ./build.sh &&
+                "${PI_GEN}" \
+                bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
+        cd /pi-gen; ${stages}; source ./build.sh;
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
 fi
+
+# now commit that container $SPRINT defined in config
+if [ ${STAGES[${#STAGES[@]}-1]} -eq 0 ]
+then
+    docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+    # hack to avoid docker login requesting an email address. nb env. vars coming from travis
+    echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+    docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+fi
+
 echo "copying results from deploy/"
 $DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
 ls -lah deploy
 
 # cleanup
 if [ "$PRESERVE_CONTAINER" != "1" ]; then
-	$DOCKER rm -v $CONTAINER_NAME
+      $DOCKER rm -v $CONTAINER_NAME
 fi
 
 echo "Done! Your image(s) should be in deploy/"
