@@ -76,7 +76,7 @@ else
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}" SIGINT SIGTERM
 	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
 		-e IMG_NAME="${IMG_NAME}"\
-                -v $(pwd)/config:/pi-gen/config
+                -v $(pwd)/config:/pi-gen/config \
                 "${PI_GEN}" \
                 bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
         cd /pi-gen; ${stages}; source ./build.sh;
