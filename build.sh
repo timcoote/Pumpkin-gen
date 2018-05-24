@@ -32,7 +32,12 @@ EOF
 			if [ -n "$PACKAGES" ]; then
 				on_chroot << EOF
 set -x
-apt update && apt -y upgrade && apt install -y $PACKAGES
+echo "update"
+apt update
+echo "upgrade"
+apt -y upgrade
+echo "install"
+apt install -y $PACKAGES
 EOF
 			fi
 			log "End ${SUB_STAGE_DIR}/${i}-packages"
