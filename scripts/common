@@ -70,7 +70,8 @@ unmount_image(){
 export -f unmount_image
 
 on_chroot() {
-        echo "in on_chroot $1 $2 $3"
+        set -x
+        echo "back in on_chroot $1 $2 $3"
 
 	if ! mount | grep -q "$(realpath "${ROOTFS_DIR}"/proc)"; then
 		mount -t proc proc "${ROOTFS_DIR}/proc"
