@@ -3,6 +3,15 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+`1.37.0`_ - 2018-06-05
+------------------------
+
+Changed
+~~~~~~~
+- Rolled Sprint Number
+- Added Package libavahi-compat-libdnssd1 
+- Refactored image names
+
 
 `1.134`_ - 2081-04-30
 ------------------------
