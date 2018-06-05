@@ -3,6 +3,13 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+`1.37.1`_ - 2018-06-05
+------------------------
+
+Changed
+~~~~~~~
+- Build of stage 2
+
 `1.37.0`_ - 2018-06-05
 ------------------------
 
