@@ -3,6 +3,13 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+`1.37.2`_ - 2018-06-06
+------------------------
+Changed
+~~~~~~~
+- Nudged AdminaApp to 1.37.1
+- Nudged RC number
+
 `1.37.1`_ - 2018-06-05
 ------------------------
 
