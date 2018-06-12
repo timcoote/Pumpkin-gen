@@ -45,7 +45,7 @@ dpkg-scanpackages . /dev/null > Packages
 # gzip -c9 Packages> Packages.gz
 apt-ftparchive release . > Release
 gpg --batch --yes --clearsign --output  InRelease Release
-apt update 
+apt update  -y
 # otherwise the chroot /dev directory remains busy
 gpgconf --kill gpg-agent
 # --force-yes is deprecated, so removed. If / when a useful error occurs the newer --allow flag could be used
