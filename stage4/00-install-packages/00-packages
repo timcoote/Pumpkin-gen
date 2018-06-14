@@ -33,3 +33,5 @@ python-smbus python3-smbus
 pprompt
 #scratch2
 #python3-thonny
+# AMONIS: NPM Install common libraries ( test )
+npm install uglify-js -g
