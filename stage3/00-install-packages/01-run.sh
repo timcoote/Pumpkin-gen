@@ -54,7 +54,4 @@ curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp
 
-# AMONIS: 14/06/2018: moved npm install here
-npm install uglify-js -g
-
 EOF
