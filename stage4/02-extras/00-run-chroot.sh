@@ -14,4 +14,4 @@ pip3 install pika
 pip3 install yeelight
 
 # AMONIS: 14/06/2018: moved npm install here
-npm install uglify-js -g
+sudo npm install uglify-js -g
