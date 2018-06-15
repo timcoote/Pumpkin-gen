@@ -17,4 +17,5 @@ pip3 install yeelight
 echo "NPM Install global components"
 node -v
 npm -v
+npm config set unsafe-perm true
 npm install uglify-js -g
