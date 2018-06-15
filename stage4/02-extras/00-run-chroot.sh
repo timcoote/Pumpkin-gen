@@ -14,8 +14,10 @@ pip3 install pika
 pip3 install yeelight
 
 # AMONIS: 14/06/2018: NPM test
-echo "NPM Install global components"
-node -v
-npm -v
-npm config set unsafe-perm true
-npm install uglify-js -g
+# The test proved successful and built image image_1.37-1.37.dev8-4GB.zip ( in the bucket )
+# Commented now for reference 
+# echo "NPM Install global components"
+# node -v
+# npm -v
+# npm config set unsafe-perm true
+# npm install uglify-js -g
