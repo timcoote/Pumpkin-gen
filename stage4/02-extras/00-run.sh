@@ -25,9 +25,3 @@ install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.local/share/applications"
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.local/share/desktop-directories"
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.ssh"
 install -v -m 400 -o 1000 -g 1000 files/hubcentral.pub ${ROOTFS_DIR}/home/pi/.ssh/authorized_keys
-
-# AMONIS: 14/06/2018: NPM test
-echo "NPM Install global components"
-node -v
-npm -v
-npm install uglify-js -g

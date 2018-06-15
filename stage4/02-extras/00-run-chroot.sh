@@ -12,3 +12,9 @@ ln -sf /usr/local/lib/python3.5/dist-packages/python_openzwave/ozw_config /usr/l
 
 pip3 install pika
 pip3 install yeelight
+
+# AMONIS: 14/06/2018: NPM test
+echo "NPM Install global components"
+node -v
+npm -v
+npm install uglify-js -g
