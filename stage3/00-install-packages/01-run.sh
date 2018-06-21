@@ -57,4 +57,5 @@ gpgconf --kill gpg-agent
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp
+
 EOF
