@@ -2,9 +2,11 @@
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
 ha_v=0.64
 hc_v=1.0rc3
-sens_v=0.38
+sens_v=0.39
 filebeat_v=0.53
-adminapp_v=full_1.37.3
+adminapp_v=full_1.37.5
+bcg_p_v=0.2
+bcg_w_v=0.1
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
@@ -18,6 +20,8 @@ install -v -o 1000 -g 1000 -D files/sensei-core_${sens_v}_all.deb ${ROOTFS_DIR}/
 install -v -o 1000 -g 1000 -D files/sensei-master_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/adminapp_${adminapp_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/bcg-presenceservice_${bcg_p_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/bcg-occupancywriterservice_${bcg_w_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/gpgkeyin ${ROOTFS_DIR}/home/pi
 install -v -m 600 -o 1000 -g 1000 -D files/passwd ${ROOTFS_DIR}/home/pi/.vnc
 install -v -m 600 -D files/wpa_supplicant.conf ${ROOTFS_DIR}/etc/wpa_supplicant/wpa_supplicant.conf
