@@ -4,7 +4,7 @@ ha_v=0.64
 hc_v=1.0rc3
 sens_v=0.39
 filebeat_v=0.53
-adminapp_v=full_1.37.5
+adminapp_v=full_1.38.1
 bcg_p_v=0.2
 bcg_w_v=0.1
 
