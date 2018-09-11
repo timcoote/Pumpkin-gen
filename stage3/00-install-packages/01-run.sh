@@ -53,7 +53,7 @@ gpgconf --kill gpg-agent
 # --force-yes is deprecated, so removed. If / when a useful error occurs the newer --allow flag could be used
 # or move these to one of the xx-packages files
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
-
-apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp bcg-presenceservice
+# temp move of bcg-presenceservice to stage4 as its pre.sh runs pip3, which isn't installed, yet.
+apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp
 
 EOF
