@@ -3,6 +3,14 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+`1.41.1`_ - 2018-06-06
+------------------------
+Changed
+~~~~~~~
+- updated adminapp,
+- sensei updated in 1.39(!)
+- bcg-presenceservice updated in 1.39
+
 `1.37.2`_ - 2018-06-06
 ------------------------
 Changed
