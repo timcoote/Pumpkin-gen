@@ -10,6 +10,7 @@ Changed
 - updated adminapp,
 - sensei updated in 1.39(!)
 - bcg-presenceservice updated in 1.39
+- updated pushkeys/hubaccess to keep trying to post the keys to S3
 
 `1.37.2`_ - 2018-06-06
 ------------------------
