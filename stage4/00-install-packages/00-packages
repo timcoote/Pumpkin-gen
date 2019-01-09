@@ -1,5 +1,5 @@
 libudev-dev
-java-common oracle-java8-jdk
+java-common openjdk-8-jdk-headless
 #libreoffice-sdbc-hsqldb
 #sonic-pi
 #python idle python3-pygame python-pygame python-tk
