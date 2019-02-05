@@ -27,4 +27,4 @@ install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.ssh"
 install -v -m 400 -o 1000 -g 1000 files/hubcentral.pub ${ROOTFS_DIR}/home/pi/.ssh/authorized_keys
 
 # AMONIS: 05/02/2019: Disable X window daemon from starting
-systemctl set-default multi-user.target
+sudo systemctl set-default multi-user.target
