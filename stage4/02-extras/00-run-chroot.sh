@@ -24,3 +24,8 @@ apt install -y bcg-presenceservice
 # npm -v
 # npm config set unsafe-perm true
 # npm install uglify-js -g
+
+# AMONIS: 06/02/2019: Setting boot option to CMDLINE only as default
+systemctl set-default multi-user.target
+ln -fs /lib/systemd/system/getty@.service /etc/systemd/system/getty.target.wants/getty@tty1.service
+rm /etc/systemd/system/getty@tty1.service.d/autologin.conf
