@@ -27,6 +27,9 @@ install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/pi/.ssh"
 install -v -m 400 -o 1000 -g 1000 files/hubcentral.pub ${ROOTFS_DIR}/home/pi/.ssh/authorized_keys
 
 # AMONIS: 05/02/2019: Disable X window daemon from starting
-sudo systemctl set-default multi-user.target
-sudo ln -fs /lib/systemd/system/getty@.service /etc/systemd/system/getty.target.wants/getty@tty1.service
-# sudo rm /etc/systemd/system/getty@tty1.service.d/autologin.conf
+on_chroot << EOF
+touch /etc/pumpkin/config/andymonis.txt
+systemctl set-default multi-user.target
+ln -fs /lib/systemd/system/getty@.service /etc/systemd/system/getty.target.wants/getty@tty1.service
+rm /etc/systemd/system/getty@tty1.service.d/autologin.conf
+EOF
