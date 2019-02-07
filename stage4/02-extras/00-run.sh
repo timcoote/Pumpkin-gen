@@ -28,8 +28,5 @@ install -v -m 400 -o 1000 -g 1000 files/hubcentral.pub ${ROOTFS_DIR}/home/pi/.ss
 
 # AMONIS: 05/02/2019: Disable X window daemon from starting
 on_chroot << EOF
-touch /etc/pumpkin/config/andymonis.txt
 systemctl set-default multi-user.target
-ln -fs /lib/systemd/system/getty@.service /etc/systemd/system/getty.target.wants/getty@tty1.service
-rm /etc/systemd/system/getty@tty1.service.d/autologin.conf
 EOF
