@@ -15,6 +15,7 @@ gldriver-test
 #fonts-droid-fallback
 #fonts-liberation2
 #obconf
-rabbitmq-server
+#Andy VH commenting out as v2 does not require
+#rabbitmq-server
 # AMONIS: 05/06/2018: Adding in SharedLib for GoogleHome integration ( depended on by Hub App )
 libavahi-compat-libdnssd1 

@@ -12,4 +12,6 @@ echo "pi:L3m0nJ311y" | chpasswd
 echo "root:root" | chpasswd
 EOF
 
+# Andy VH maybe we should create the sensei user here?
+
 

@@ -41,6 +41,8 @@ for GRP in adm dialout cdrom audio users sudo video games plugdev input gpio spi
 done
 EOF
 
+# Andy VH if we create our sensei user then we could add them to dialout for Zwave dongle access here. 
+
 on_chroot << EOF
 setupcon --force --save-only -v
 EOF

@@ -27,7 +27,9 @@ wiringpi pigpio python-pigpio python3-pigpio raspi-gpio python-gpiozero python3-
 python-spidev python3-spidev
 #python-twython python3-twython
 python-smbus python3-smbus
-#python-flask python3-flask
+#python-flask 
+# Andy VH uncommented as Hub v2 needs flask
+python3-flask
 #python-picraft python3-picraft
 #python-sense-emu python3-sense-emu sense-emu-tools python-sense-emu-doc
 pprompt

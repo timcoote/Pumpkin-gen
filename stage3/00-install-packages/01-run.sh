@@ -7,6 +7,12 @@ filebeat_v=0.53
 adminapp_v=full_1.49.24
 bcg_p_v=0.3
 
+# Andy VH hubv2 params
+pumpkin_config=0.1      # pumpkin-config_0.1_all.deb
+sensei2=0.1             # sensei2_0.1_all.deb
+hubconnect2=2.0         # hub-connect2_2.0_all.deb
+hubdaemon=1.51.3        # hubdaemon_1.51.3_all.deb
+
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/.vnc
@@ -14,12 +20,23 @@ install -v -m 644 files/hubaccess.list ${ROOTFS_DIR}/etc/apt/sources.list.d
 install -v -m 644 files/pumpkin.conf ${ROOTFS_DIR}/etc/sysctl.d
 install -v -o 1000 -g 1000 -D files/hubaccess_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/pushkeys_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/hub-connect_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/sensei-core_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/sensei-master_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+# Andy VH commenting out v1
+#install -v -o 1000 -g 1000 -D files/hub-connect_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+# Andy VH commenting out sensei v1 
+#install -v -o 1000 -g 1000 -D files/sensei-core_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+#install -v -o 1000 -g 1000 -D files/sensei-master_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/adminapp_${adminapp_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/bcg-presenceservice_${bcg_p_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+# Andy VH commenting out v1
+#install -v -o 1000 -g 1000 -D files/adminapp_${adminapp_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+#install -v -o 1000 -g 1000 -D files/bcg-presenceservice_${bcg_p_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+
+# Andy VH begin v2 installs
+install -v -o 1000 -g 1000 -D files/pumpkin_config_${pumpkin_config}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/sensei2_${sensei2}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/hubconnect2${hubconnect2}_all.deb ${ROOTFS_DIR}/home/pi/debs
+# Andy VH end v2 installs
+
+
 install -v -o 1000 -g 1000 -D files/gpgkeyin ${ROOTFS_DIR}/home/pi
 install -v -m 600 -o 1000 -g 1000 -D files/passwd ${ROOTFS_DIR}/home/pi/.vnc
 install -v -m 600 -D files/wpa_supplicant.conf ${ROOTFS_DIR}/etc/wpa_supplicant/wpa_supplicant.conf
@@ -54,6 +71,11 @@ gpgconf --kill gpg-agent
 # or move these to one of the xx-packages files
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 # temp move of bcg-presenceservice to stage4 as its pre.sh runs pip3, which isn't installed, yet.
-apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp
+# AVH commenting out for v2 apps below
+# apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp
+
+# Andy VH updating the install list to the v2 requirements
+apt -y install  hubaccess pushkeys pumpkin_config sensei2 hub-connect2 filebeat
+
 
 EOF
