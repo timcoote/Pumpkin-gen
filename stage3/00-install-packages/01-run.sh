@@ -33,7 +33,7 @@ install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}
 # Andy VH begin v2 installs
 install -v -o 1000 -g 1000 -D files/pumpkin-config_${pumpkinconfig}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/sensei2_${sensei2}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/hubconnect2${hubconnect2}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/hubconnect2_${hubconnect2}_all.deb ${ROOTFS_DIR}/home/pi/debs
 # Andy VH end v2 installs
 
 
