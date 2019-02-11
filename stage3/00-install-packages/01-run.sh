@@ -8,7 +8,7 @@ adminapp_v=full_1.49.24
 bcg_p_v=0.3
 
 # Andy VH hubv2 params
-pumpkin_config=0.1      # pumpkin-config_0.1_all.deb
+pumpkin-config=0.1      # pumpkin-config_0.1_all.deb
 sensei2=0.1             # sensei2_0.1_all.deb
 hubconnect2=2.0         # hub-connect2_2.0_all.deb
 hubdaemon=1.51.3        # hubdaemon_1.51.3_all.deb
@@ -31,7 +31,7 @@ install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}
 #install -v -o 1000 -g 1000 -D files/bcg-presenceservice_${bcg_p_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 
 # Andy VH begin v2 installs
-install -v -o 1000 -g 1000 -D files/pumpkin_config_${pumpkin_config}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/pumpkin-config_${pumpkin-config}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/sensei2_${sensei2}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/hubconnect2${hubconnect2}_all.deb ${ROOTFS_DIR}/home/pi/debs
 # Andy VH end v2 installs
