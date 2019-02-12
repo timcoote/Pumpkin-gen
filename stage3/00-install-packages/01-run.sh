@@ -43,6 +43,18 @@ install -v -m 600 -D files/wpa_supplicant.conf ${ROOTFS_DIR}/etc/wpa_supplicant/
 install -v -D files/tightvnc.service ${ROOTFS_DIR}/lib/systemd/system/tightvnc.service
 install -v -o 1000 -g 1000 -D files/autostart ${ROOTFS_DIR}/home/pi/.config/lxsession/LXDE-pi/autostart
 on_chroot << EOF
+
+# https://superuser.com/a/884191
+# create a user that our services will run as
+set -x
+adduser --system --no-create-home --disabled-login --group sensei
+
+# add user sense to the dialout group so that our service can access the zstick
+adduser sensei dialout
+
+
+
+
 #update-alternatives --install /usr/bin/x-www-browser \
 #  x-www-browser /usr/bin/chromium-browser 86
 #update-alternatives --install /usr/bin/gnome-www-browser \
@@ -75,6 +87,6 @@ curl -sL https://deb.nodesource.com/setup_8.x | bash -
 # apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp
 
 # Andy VH updating the install list to the v2 requirements
-apt -y install  hubaccess pushkeys sensei2 hub-connect2 
+apt -y install  hubaccess pushkeys
 
 EOF
