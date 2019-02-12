@@ -87,6 +87,6 @@ curl -sL https://deb.nodesource.com/setup_8.x | bash -
 # apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp
 
 # Andy VH updating the install list to the v2 requirements
-apt -y install  hubaccess pushkeys
+apt -y install hubaccess pushkeys pumpkin-config
 
 EOF
