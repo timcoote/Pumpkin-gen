@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 # Andy VH no longer needed
-#pip3 install netifaces
+pip3 install netifaces
 #pip3 install PyDispatcher==2.0.5
 pip3 install six
 #pip3 install urwid==1.1.1
