@@ -29,3 +29,6 @@ branches:
 install:
 #    - rake build_base_docker_image
     - ./travis.scripts/dependencies.sh
+
+notifications:
+  slack: anthroposworkspace:B8n8rDxbdOW2njY87tBjbl8M
