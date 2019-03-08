@@ -2,10 +2,14 @@
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
 ha_v=0.65
 hc_v=1.38.rc1
-sens_v=0.45
+config=0.1
+sens_v=0.1
 filebeat_v=0.53
 adminapp_v=full_1.49.24
 bcg_p_v=0.3
+
+sensei2_0.1_all.deb
+pumpkin-config_0.1_all.deb
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
@@ -14,9 +18,9 @@ install -v -m 644 files/hubaccess.list ${ROOTFS_DIR}/etc/apt/sources.list.d
 install -v -m 644 files/pumpkin.conf ${ROOTFS_DIR}/etc/sysctl.d
 install -v -o 1000 -g 1000 -D files/hubaccess_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/pushkeys_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/pumpkin-config_${config_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/hub-connect_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/sensei-core_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/sensei-master_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/sensei2_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/adminapp_${adminapp_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/bcg-presenceservice_${bcg_p_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
@@ -54,6 +58,6 @@ gpgconf --kill gpg-agent
 # or move these to one of the xx-packages files
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 # temp move of bcg-presenceservice to stage4 as its pre.sh runs pip3, which isn't installed, yet.
-apt -y install  hubaccess pushkeys hub-connect sensei-core sensei-master filebeat nodejs adminapp
+apt -y install  hubaccess pushkeys hub-connect pumpkin-config sensei2 filebeat nodejs adminapp
 
 EOF
