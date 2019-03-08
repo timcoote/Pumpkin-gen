@@ -8,9 +8,6 @@ filebeat_v=0.53
 adminapp_v=full_1.49.24
 bcg_p_v=0.3
 
-sensei2_0.1_all.deb
-pumpkin-config_0.1_all.deb
-
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/.vnc
