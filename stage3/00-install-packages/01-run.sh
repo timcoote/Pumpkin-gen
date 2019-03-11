@@ -5,8 +5,8 @@ hc_v=1.38.rc1
 config_v=0.1
 sens_v=0.1
 filebeat_v=0.53
-adminapp_v=full_1.49.24
-bcg_p_v=0.3
+hubdaemon_v=1.51.3
+bcg_p_v=0.5
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
@@ -19,7 +19,7 @@ install -v -o 1000 -g 1000 -D files/pumpkin-config_${config_v}_all.deb ${ROOTFS_
 install -v -o 1000 -g 1000 -D files/hub-connect_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/sensei2_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/adminapp_${adminapp_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/hubdaemon_${hubdaemon_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/bcg-presenceservice_${bcg_p_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/gpgkeyin ${ROOTFS_DIR}/home/pi
 install -v -m 600 -o 1000 -g 1000 -D files/passwd ${ROOTFS_DIR}/home/pi/.vnc
@@ -65,6 +65,6 @@ gpgconf --kill gpg-agent
 # or move these to one of the xx-packages files
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 # temp move of bcg-presenceservice to stage4 as its pre.sh runs pip3, which isn't installed, yet.
-apt -y install  hubaccess pushkeys pumpkin-config sensei2 nodejs
+apt -y install  hubaccess pushkeys pumpkin-config sensei2 nodejs hubdaemon
 
 EOF

@@ -11,7 +11,7 @@ pip3 install python-openzwave==0.4.18
 ln -sf /usr/local/lib/python3.5/dist-packages/python_openzwave/ozw_config /usr/local/etc/openzwave
 
 pip3 install pika
-pip3 install yeelight
+# pip3 install yeelight
 
 # currently has to be after pip3 installation as pre.sh uses it
 apt install -y bcg-presenceservice
