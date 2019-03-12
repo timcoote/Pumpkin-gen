@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
 ha_v=1.01
-hc_v=1.01
+hc_v=2.0
 config_v=0.1
 sens_v=0.1
 filebeat_v=0.54
