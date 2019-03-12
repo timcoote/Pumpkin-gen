@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
-ha_v=0.65
-hc_v=2.0
+ha_v=1.01
+hc_v=1.01
 config_v=0.1
 sens_v=0.1
 filebeat_v=0.54
@@ -19,7 +19,7 @@ install -v -o 1000 -g 1000 -D files/pumpkin-config_${config_v}_all.deb ${ROOTFS_
 install -v -o 1000 -g 1000 -D files/hub-connect2_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/sensei2_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/hubdaemon_${hubdaemon_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+# install -v -o 1000 -g 1000 -D files/hubdaemon_${hubdaemon_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/bcg-presenceservice_${bcg_p_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/gpgkeyin ${ROOTFS_DIR}/home/pi
 install -v -m 600 -o 1000 -g 1000 -D files/passwd ${ROOTFS_DIR}/home/pi/.vnc
@@ -65,6 +65,8 @@ gpgconf --kill gpg-agent
 # or move these to one of the xx-packages files
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 # temp move of bcg-presenceservice to stage4 as its pre.sh runs pip3, which isn't installed, yet.
-apt -y install  hubaccess pushkeys pumpkin-config sensei2 nodejs filebeat
+apt -y install pumpkin-config sensei2 hub-conncet2 filebeat nodejs
+
+# hubaccess pushkeys hubdaemon
 
 EOF
