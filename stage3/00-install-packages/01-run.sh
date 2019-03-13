@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
-ha_v=0.65
+ha_v=1.01 					# AMONIS: 13/03/2019: Updated to use v2 spec hubaccess which moves its disk location
 hc_v=1.38.rc1
 sens_v=0.45
 filebeat_v=0.53
