@@ -5,7 +5,7 @@ hc_v=2.0
 config_v=0.1
 sens_v=0.1
 filebeat_v=0.54
-hubdaemon_v=1.54.15
+hubdaemon_v=1.54.19
 bcg_p_v=0.5
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
@@ -65,7 +65,7 @@ gpgconf --kill gpg-agent
 # or move these to one of the xx-packages files
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 # temp move of bcg-presenceservice to stage4 as its pre.sh runs pip3, which isn't installed, yet.
-apt -y install hubaccess pushkeys pumpkin-config hub-connect2 sensei2 filebeat nodejs
+apt -y install hubaccess pushkeys pumpkin-config hub-connect2 sensei2 filebeat nodejs hubdaemon
 
 #    hubdaemon
 
