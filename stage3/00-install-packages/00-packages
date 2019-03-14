@@ -18,3 +18,5 @@ gldriver-test
 #rabbitmq-server
 # AMONIS: 05/06/2018: Adding in SharedLib for GoogleHome integration ( depended on by Hub App )
 libavahi-compat-libdnssd1 
+# mtc: 2019-3-14 add nodejs as a standard package
+nodejs
