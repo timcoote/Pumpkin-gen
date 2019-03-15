@@ -6,7 +6,7 @@ config_v=0.1
 sens_v=0.1
 filebeat_v=0.55
 hubdaemon_v=1.54.19
-bcg_p_v=0.5
+bcg_p_v=0.6
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
