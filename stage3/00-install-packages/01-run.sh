@@ -5,7 +5,7 @@ hc_v=2.0
 config_v=0.1
 sens_v=0.1
 filebeat_v=0.55
-hubdaemon_v=1.54.19
+hubdaemon_v=1.54.42
 bcg_p_v=0.9
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
