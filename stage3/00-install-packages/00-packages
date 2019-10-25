@@ -5,13 +5,13 @@ git
 #omxplayer
 #raspberrypi-artwork
 policykit-1
-gvfs
+#gvfs
 rfkill
 # should pick up newest version
 # does not work: cannot get dhcp address: wicd-gtk
 ansible
 #chromium-browser rpi-chromium-mods
-gldriver-test
+#gldriver-test
 #fonts-droid-fallback
 #fonts-liberation2
 #obconf
