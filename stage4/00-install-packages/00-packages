@@ -12,8 +12,9 @@ java-common openjdk-9-jdk openjdk-8-jre
 
 python-serial python3-serial
 #python-picamera python3-picamera
-debian-reference-en dillo x2x
-raspberrypi-net-mods raspberrypi-ui-mods
+#debian-reference-en dillo x2x
+raspberrypi-net-mods
+# raspberrypi-ui-mods
 smartsim
 python-pip python3-pip
 #python3-numpy
@@ -25,7 +26,7 @@ tree
 #scratch nuscratch
 #greenfoot bluej
 #nodered
-libgl1-mesa-dri libgles1-mesa libgles2-mesa xcompmgr
+#libgl1-mesa-dri libgles1-mesa libgles2-mesa xcompmgr
 #geany
 #piclone
 wiringpi pigpio python-pigpio python3-pigpio raspi-gpio python-gpiozero python3-gpiozero python3-rpi.gpio
