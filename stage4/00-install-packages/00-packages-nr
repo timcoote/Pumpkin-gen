@@ -1,5 +1,5 @@
 #libreoffice libreoffice-gtk
 # timidity - midi sequencer - don't need
-pi-package
+#pi-package
 #realvnc-vnc-server realvnc-vnc-viewer
 #tightvncserver
