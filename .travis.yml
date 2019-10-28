@@ -17,7 +17,7 @@ services:
 before_install:
   - ./travis.scripts/creds.sh
   - pip install --user awscli
-  - aws  s3 sync --exact-timestamps   --exclude "*" --include "*.deb" s3://pumpco/ stage3/00-install-packages/files/
+  - aws  s3 sync --exact-timestamps   --exclude "*" --include "*.deb" s3://pumpco/current/ stage3/00-install-packages/files/
 
 sudo: enabled
 
