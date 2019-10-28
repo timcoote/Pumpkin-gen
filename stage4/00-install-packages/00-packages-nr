@@ -3,3 +3,4 @@
 #pi-package
 #realvnc-vnc-server realvnc-vnc-viewer
 #tightvncserver
+java-common openjdk-9-jdk-headless openjdk-8-jre-headless
