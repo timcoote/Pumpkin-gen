@@ -20,7 +20,8 @@ apt-transport-https
 libpam-chksshpwd
 rpi-update
 libmtp-runtime
-rsync
+# mv to packages-nr
+# rsync
 htop
 man-db
 policykit-1
