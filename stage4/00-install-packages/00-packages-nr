@@ -4,5 +4,5 @@ pi-package
 #realvnc-vnc-server realvnc-vnc-viewer
 # mtc 2019-10-29 removed as no longer required
 # tightvncserver
-# put java 11 headless here so that x11 is not automatically pulled in
-openjdk-11-jre-headless
+# put java 9 headless here so that x11 is not automatically pulled in. java 11 is in backports, so not clear if it's supported for rpi
+openjdk-9-jre-headless
