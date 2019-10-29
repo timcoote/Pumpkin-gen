@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:stretch
 ENV container docker
 
 ENV DEBIAN_FRONTEND noninteractive
