@@ -2,4 +2,7 @@
 # timidity - midi sequencer - don't need
 pi-package
 #realvnc-vnc-server realvnc-vnc-viewer
-tightvncserver
+# mtc 2019-10-29 removed as no longer required
+# tightvncserver
+# put java 11 headless here so that x11 is not automatically pulled in
+openjdk-11-jre-headless
