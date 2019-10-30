@@ -1,6 +1,6 @@
 # the rest of the build is in stretch, but the host needs buster for a qemu that works with java
-# FROM debian:stretch
-FROM debian:buster
+FROM debian:stretch
+# FROM debian:buster
 ENV container docker
 
 ENV DEBIAN_FRONTEND noninteractive
