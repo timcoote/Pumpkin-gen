@@ -29,7 +29,7 @@ tree
 #scratch nuscratch
 #greenfoot bluej
 #nodered
-libgl1-mesa-dri libgles1-mesa libgles2-mesa xcompmgr
+#libgl1-mesa-dri libgles1-mesa libgles2-mesa xcompmgr
 #geany
 #piclone
 wiringpi pigpio python-pigpio python3-pigpio raspi-gpio python-gpiozero python3-gpiozero python3-rpi.gpio
