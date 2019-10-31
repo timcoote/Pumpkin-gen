@@ -6,4 +6,5 @@ pi-package
 # tightvncserver
 # put java 9 headless here so that x11 is not automatically pulled in. java 11 is in backports, so not clear if it's supported for rpi
 # move java-common from 00-packages: may not work!
-java-common openjdk-9-jre-headless openjdk-8-jre-headless
+# does not work. Certificates are not updated. Maybe it's possible to just update them ?
+# java-common openjdk-9-jre-headless openjdk-8-jre-headless
