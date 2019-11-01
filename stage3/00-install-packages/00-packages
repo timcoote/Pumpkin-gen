@@ -4,8 +4,8 @@ desktop-base
 git
 #omxplayer
 raspberrypi-artwork
-policykit-1
-gvfs
+#policykit-1
+#gvfs
 rfkill
 # should pick up newest version
 # does not work: cannot get dhcp address: wicd-gtk
