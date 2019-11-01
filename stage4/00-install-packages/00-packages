@@ -3,6 +3,7 @@ libudev-dev
 # failed when whole line removed. Putting back in
 # moved to packages-nr
 # java-common openjdk-9-jdk openjdk-8-jre
+python3-pip
 java-common openjdk-9-jdk-headless openjdk-8-jre-headless
 
 # AMONIS: 27/02/2019: Fix for error in build Error: missing `client' JVM at `/usr/lib jvm/java-9-openjdk-armhf/lib/client/libjvm.so'.
