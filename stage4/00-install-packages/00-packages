@@ -3,7 +3,6 @@ libudev-dev
 # failed when whole line removed. Putting back in
 # moved to packages-nr
 # java-common openjdk-9-jdk openjdk-8-jre
-python3-pip
 java-common openjdk-9-jdk-headless openjdk-8-jre-headless
 
 # AMONIS: 27/02/2019: Fix for error in build Error: missing `client' JVM at `/usr/lib jvm/java-9-openjdk-armhf/lib/client/libjvm.so'.
@@ -20,7 +19,8 @@ java-common openjdk-9-jdk-headless openjdk-8-jre-headless
 #debian-reference-en # dillo x2x
 #raspberrypi-net-mods raspberrypi-ui-mods
 #smartsim
-#python-pip python3-pip
+# pip3 used in later stages
+python3-pip # python-pip
 #python3-numpy
 #pypy
 #minecraft-pi python-minecraftpi
