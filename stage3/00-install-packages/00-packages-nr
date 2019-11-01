@@ -2,5 +2,5 @@
 #epiphany-browser
 #lxde lxtask menu-xdg gksu
 #netsurf-gtk zenity xdg-utils
-gvfs-backends gvfs-fuse
+#gvfs-backends gvfs-fuse
 #lightdm gnome-themes-standard-data gnome-icon-theme
