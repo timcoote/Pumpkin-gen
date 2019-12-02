@@ -1,6 +1,6 @@
-xserver-xorg-video-fbdev xserver-xorg xinit xserver-xorg-video-fbturbo
+# AMONIS: 02/12/2019: removed xserver-xorg-video-fbdev xserver-xorg xinit xserver-xorg-video-fbturbo
 #epiphany-browser
-lxde lxtask menu-xdg gksu
-netsurf-gtk zenity xdg-utils
-gvfs-backends gvfs-fuse
-lightdm gnome-themes-standard-data gnome-icon-theme
+# AMONIS: 02/12/2019: removed lxde lxtask menu-xdg gksu
+# AMONIS: 02/12/2019: removed netsurf-gtk zenity xdg-utils
+# AMONIS: 02/12/2019: removed gvfs-backends gvfs-fuse
+# AMONIS: 02/12/2019: removed lightdm gnome-themes-standard-data gnome-icon-theme

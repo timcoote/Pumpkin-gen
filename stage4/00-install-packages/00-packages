@@ -1,5 +1,7 @@
 libudev-dev
-java-common openjdk-9-jdk openjdk-8-jre
+
+# AMONIS: 02/12/2019: added JRE headless java-common openjdk-9-jdk openjdk-8-jre
+java-common openjdk-9-jdk-headless openjdk-8-jre-headless
 
 # AMONIS: 27/02/2019: Fix for error in build Error: missing `client' JVM at `/usr/lib jvm/java-9-openjdk-armhf/lib/client/libjvm.so'.
 # mtc: 2019-3-1: remove headless jdk as it's installed in any case. Added jdk-8 to fix `update-ca-certificates` (http://bit.ly/2SB4PPM) 
@@ -10,22 +12,23 @@ java-common openjdk-9-jdk openjdk-8-jre
 #python3 idle3 python3-tk
 #python3-pgzero
 
+
 python-serial python3-serial
 #python-picamera python3-picamera
-debian-reference-en dillo x2x
-raspberrypi-net-mods raspberrypi-ui-mods
-smartsim
+# AMONIS: 02/12/2019: removed debian-reference-en dillo x2x 
+# AMONIS: 02/12/2019: removed raspberrypi-net-mods raspberrypi-ui-mods 
+# AMONIS: 02/12/2019: removed smartsim 
 python-pip python3-pip
 #python3-numpy
 #pypy
 #minecraft-pi python-minecraftpi
 #rc-gui # alacarte rc-gui # sense-hat
 #claws-mail
-tree
+# AMONIS: 02/12/2019: removed tree
 #scratch nuscratch
 #greenfoot bluej
 #nodered
-libgl1-mesa-dri libgles1-mesa libgles2-mesa xcompmgr
+# AMONIS: 02/12/2019: removed libgl1-mesa-dri libgles1-mesa libgles2-mesa xcompmgr
 #geany
 #piclone
 wiringpi pigpio python-pigpio python3-pigpio raspi-gpio python-gpiozero python3-gpiozero python3-rpi.gpio
@@ -35,6 +38,6 @@ python-smbus python3-smbus
 #python-flask python3-flask
 #python-picraft python3-picraft
 #python-sense-emu python3-sense-emu sense-emu-tools python-sense-emu-doc
-pprompt
+# AMONIS: 02/12/2019: removed pprompt
 #scratch2
 #python3-thonny

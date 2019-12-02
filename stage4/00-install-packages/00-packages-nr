@@ -2,4 +2,5 @@
 # timidity - midi sequencer - don't need
 pi-package
 #realvnc-vnc-server realvnc-vnc-viewer
-tightvncserver
+# AMONIS: 02/12/2019: Removed as not required
+#tightvncserver
