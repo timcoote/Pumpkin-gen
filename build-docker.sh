@@ -85,14 +85,15 @@ else
 	wait "$!"
 fi
 
+# AMONIS: 11/12/19: Removed checkin of stage
 # now commit that container $SPRINT defined in config
-if [ ${STAGES[${#STAGES[@]}-1]} -eq 0 ]
-then
-    docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
-    # hack to avoid docker login requesting an email address. nb env. vars coming from travis
-    echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-    docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
-fi
+# if [ ${STAGES[${#STAGES[@]}-1]} -eq 0 ]
+# then
+#     docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+#     # hack to avoid docker login requesting an email address. nb env. vars coming from travis
+#     echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+#     docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+# fi
 
 echo "copying results from deploy/"
 $DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
