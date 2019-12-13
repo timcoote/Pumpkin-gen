@@ -84,7 +84,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 else
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}" SIGINT SIGTERM
 	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
-		-e IMG_NAME="${IMG_NAME}"\
+		-e IMG_NAME="${IMG_NAME}"\ 
                 -v $(pwd)/config:/pi-gen/config \
                 -v $(pwd)/stage3:/pi-gen/stage3 \
                 -v $(pwd)/stage4:/pi-gen/stage4 \
@@ -95,18 +95,20 @@ else
 	wait "$!"
 fi
 
-# now commit that container $SPRINT defined in config
-if [ ${STAGES[${#STAGES[@]}-1]} -eq 0 ]
-then
-    docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
-    # hack to avoid docker login requesting an email address. nb env. vars coming from travis
-    echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-    docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
-fi
+# # now commit that container $SPRINT defined in config
+# if [ ${STAGES[${#STAGES[@]}-1]} -eq 0 ]
+# then
+#     docker commit ${CONTAINER_NAME} timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+#     # hack to avoid docker login requesting an email address. nb env. vars coming from travis
+#     echo "tim+github.com@coote.org" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+#     docker push timcoote/iotaa-pi-gen-stage0:"$SPRINT"
+# fi
 
 echo "copying results from deploy/"
 $DOCKER cp "${CONTAINER_NAME}":/pi-gen/deploy .
 ls -lah deploy
+
+touch deploy/andy.monis.txt
 
 # cleanup
 if [ "$PRESERVE_CONTAINER" != "1" ]; then

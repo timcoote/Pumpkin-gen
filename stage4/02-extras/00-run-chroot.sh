@@ -14,7 +14,7 @@ pip3 install pika
 # pip3 install yeelight
 
 # currently has to be after pip3 installation as pre.sh uses it
-# 2019-10-29: mtc temp removal to get the card to build
+# 2019-11-18: AMONIS, uncommneted. 2019-10-29: mtc temp removal to get the card to build
 apt install -y bcg-presenceservice
 
 # AMONIS: 14/06/2018: NPM test

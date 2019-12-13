@@ -12,6 +12,11 @@ task :default do
    puts files
 end
 
+
+
+
+
+
 # reminder on how to get the travis stuff for encrypting, for build automation
 file "travis" do
     `gem install travis`
