@@ -1,26 +1,27 @@
 #!/bin/bash -ex
 # the structure of build.sh allows sparation of non-chroot and chroot actiivties
 ha_v=1.08
-hc_v=2.7
-config_v=1.5
-sens_v=0.8
+hc_v=2.11
+config_v=1.9
+sens_v=2.34.3
 filebeat_v=0.55
-hubdaemon_v=1.66.17
+hubdaemon_v=1.98.2
 # AMONIS: 18/11/2019: Updated with latest BCG with more logging to identify install problem.
 # bcg_p_v=0.23 
-bcg_p_v=1.21
+bcg_p_v=1.4.2
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/.vnc
 install -v -m 644 files/hubaccess.list ${ROOTFS_DIR}/etc/apt/sources.list.d
 install -v -m 644 files/pumpkin.conf ${ROOTFS_DIR}/etc/sysctl.d
-install -v -o 1000 -g 1000 -D files/hubaccess_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/pushkeys_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+# removing .debs and using versions available
+#install -v -o 1000 -g 1000 -D files/hubaccess_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+#install -v -o 1000 -g 1000 -D files/pushkeys_${ha_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/pumpkin-config_${config_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/hub-connect2_${hc_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/sensei2_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
-install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+install -v -o 1000 -g 1000 -D files/sensei4j_${sens_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
+#install -v -o 1000 -g 1000 -D files/filebeat_${filebeat_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/hubdaemon_${hubdaemon_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/bcg-presenceservice_${bcg_p_v}_all.deb ${ROOTFS_DIR}/home/pi/debs
 install -v -o 1000 -g 1000 -D files/gpgkeyin ${ROOTFS_DIR}/home/pi
