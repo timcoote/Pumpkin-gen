@@ -84,7 +84,7 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 else
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}" SIGINT SIGTERM
 	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
-		-e IMG_NAME="${IMG_NAME}"\ 
+		-e IMG_NAME="${IMG_NAME}"\
                 -v $(pwd)/config:/pi-gen/config \
                 -v $(pwd)/stage3:/pi-gen/stage3 \
                 -v $(pwd)/stage4:/pi-gen/stage4 \
