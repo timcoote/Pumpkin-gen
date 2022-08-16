@@ -69,6 +69,7 @@ if [ "$CONTAINER_EXISTS" != "" ] && [ "$CONTINUE" != "1" ]; then
 fi
 
 $DOCKER build -t pi-gen .
+$DOCKER run --rm --privileged multiarch/qemu-user-static --reset -p yes
 if [ "$CONTAINER_EXISTS" != "" ]; then
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}_cont" SIGINT SIGTERM
        time $DOCKER run --privileged \
