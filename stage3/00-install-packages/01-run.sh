@@ -69,6 +69,7 @@ gpgconf --kill gpg-agent
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 # temp move of bcg-presenceservice to stage4 as its pre.sh runs pip3, which isn't installed, yet.
-apt -y install hubaccess pushkeys pumpkin-config sensei2 hub-connect2 filebeat hubdaemon
+#apt -y install hubaccess pushkeys pumpkin-config sensei2 hub-connect2 filebeat hubdaemon
+apt -y install  pumpkin-config sensei4j hub-connect2  hubdaemon
 
 EOF
