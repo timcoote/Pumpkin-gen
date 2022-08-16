@@ -6,7 +6,9 @@ config_v=1.5
 sens_v=0.8
 filebeat_v=0.55
 hubdaemon_v=1.66.17
-bcg_p_v=0.23
+# AMONIS: 18/11/2019: Updated with latest BCG with more logging to identify install problem.
+# bcg_p_v=0.23 
+bcg_p_v=1.21
 
 # installing hubaccess .deb file and installing with apt. Based on this: http://bit.ly/2vIAffM
 install -v -o 1000 -g 1000 -d ${ROOTFS_DIR}/home/pi/debs
@@ -64,6 +66,7 @@ gpgconf --kill gpg-agent
 # --force-yes is deprecated, so removed. If / when a useful error occurs the newer --allow flag could be used
 # or move these to one of the xx-packages files
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
+
 # temp move of bcg-presenceservice to stage4 as its pre.sh runs pip3, which isn't installed, yet.
 apt -y install hubaccess pushkeys pumpkin-config sensei2 hub-connect2 filebeat hubdaemon
 
