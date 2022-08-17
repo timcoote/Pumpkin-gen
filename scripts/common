@@ -54,10 +54,12 @@ unmount_image(){
 	sync
 	sleep 1
 	local LOOP_DEVICES
+        local ALL_LOOPS
+        ALL_LOOPS=$(losetup)
 	LOOP_DEVICES=$(losetup -j "${1}" | cut -f1 -d':')
-        echo $LOOP_DEVICES
+        echo "loop devices ${LOOP_DEVICES} all loops: ${ALL_LOOPS}"
 	for LOOP_DEV in ${LOOP_DEVICES}; do
-		echo $LOOP_DEV
+		echo "this dev: ${LOOP_DEV}"
                 if [ -n "${LOOP_DEV}" ]; then
 			local MOUNTED_DIR
 			MOUNTED_DIR=$(mount | grep "$(basename "${LOOP_DEV}")" | head -n 1 | cut -f 3 -d ' ')
